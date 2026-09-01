@@ -1,0 +1,19 @@
+[project]
+name = "portfolio"
+version = "1.0.0"
+description = "My Portfolio Website"
+requires-python = "==3.11.9"
+
+dependencies = [
+
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "C4"]
+ignore = [
+    "E501", # Line too long
+    "BLE001",
+]
