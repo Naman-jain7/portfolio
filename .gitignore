@@ -1,8 +1,6 @@
 .env
 assets/README.md
 
-personal/
-
 .venv/
 
 __pycache__/
