@@ -1,540 +1,875 @@
 <!DOCTYPE html>
 <html lang="en" x-data="app()" :class="{'dark':dark}" class="scroll-smooth">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Eliott — Freelance UI/UX Designer and Frontend Developer. Fast, clean and accessible digital products.">
-<meta name="keywords" content="freelance developer, UI designer, portfolio, Tailwind CSS, Alpine.js">
-<meta name="author" content="Eliott">
-<meta property="og:title" content="Eliott — Freelance UI/UX Designer">
-<meta property="og:description" content="I design and build digital products that people love to use.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://eliott.dev">
-<title>Eliott — Freelance UI/UX Designer &amp; Frontend Dev</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Eliott — Freelance UI/UX Designer and Frontend Developer. Fast, clean and accessible digital products.">
+  <meta name="keywords" content="freelance developer, UI designer, portfolio, Tailwind CSS, Alpine.js">
+  <meta name="author" content="Eliott">
+  <meta property="og:title" content="Eliott — Freelance UI/UX Designer">
+  <meta property="og:description" content="I design and build digital products that people love to use.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://eliott.dev">
+  <title>Naman Jain's Portfolio</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
+    rel="stylesheet">
 
-<script>
-tailwind.config = {
-  darkMode: 'class',
-  theme: {
-    extend: {
-      fontFamily: { display: ['PT Sans','sans-serif'], body: ['DM Sans','sans-serif'] },
-      colors: { accent: '#FF6B2B', 'accent-light': '#FF8F5C' }
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { display: ['PT Sans', 'sans-serif'], body: ['DM Sans', 'sans-serif'] },
+          colors: { accent: '#FF6B2B', 'accent-light': '#FF8F5C' }
+        }
+      }
     }
-  }
-}
-</script>
+  </script>
 
-<style>
-*,*::before,*::after{box-sizing:border-box}
-html,body{font-family:'DM Sans',sans-serif}
-h1,h2,h3,h4,h5,h6{font-family:'PT Sans',sans-serif}
-body{transition:background-color .3s,color .3s}
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box
+    }
 
-/* noise overlay */
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
-background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E")}
+    html,
+    body {
+      font-family: 'DM Sans', sans-serif
+    }
 
-/* scrollbar */
-::-webkit-scrollbar{width:5px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:#FF6B2B;border-radius:99px}
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'PT Sans', sans-serif
+    }
 
-/* reveal on scroll */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)}
-.reveal.in{opacity:1;transform:none}
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+    body {
+      transition: background-color .3s, color .3s
+    }
 
-/* nav underline animation */
-.nl{position:relative}
-.nl::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1.5px;background:currentColor;transition:width .22s cubic-bezier(.4,0,.2,1)}
-.nl:hover::after,.nl.on::after{width:100%}
-.nl.on{font-weight:500}
+    /* noise overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: .35;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E")
+    }
 
-/* shimmer button */
-.shimmer{position:relative;overflow:hidden}
-.shimmer::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:rgba(255,255,255,.18);transform:skewX(-20deg);transition:left .4s cubic-bezier(.4,0,.2,1)}
-.shimmer:hover::after{left:160%}
+    /* scrollbar */
+    ::-webkit-scrollbar {
+      width: 5px
+    }
 
-/* photo frames */
-.pf{overflow:hidden;background:#d4d4d8}
-.pf img{width:100%;height:100%;object-fit:cover;display:block}
+    ::-webkit-scrollbar-track {
+      background: transparent
+    }
 
-/* card hover */
-.card-h{transition:transform .28s cubic-bezier(.4,0,.2,1),border-color .18s}
-.card-h:hover{transform:translateY(-4px)}
+    ::-webkit-scrollbar-thumb {
+      background: #FF6B2B;
+      border-radius: 99px
+    }
 
-/* skill tag */
-.stag{transition:border-color .18s}
+    /* reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .6s cubic-bezier(.4, 0, .2, 1), transform .6s cubic-bezier(.4, 0, .2, 1)
+    }
 
-[x-cloak]{display:none!important}
-</style>
+    .reveal.in {
+      opacity: 1;
+      transform: none
+    }
+
+    .d1 {
+      transition-delay: .08s
+    }
+
+    .d2 {
+      transition-delay: .16s
+    }
+
+    .d3 {
+      transition-delay: .24s
+    }
+
+    .d4 {
+      transition-delay: .32s
+    }
+
+    /* nav underline animation */
+    .nl {
+      position: relative
+    }
+
+    .nl::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: currentColor;
+      transition: width .22s cubic-bezier(.4, 0, .2, 1)
+    }
+
+    .nl:hover::after,
+    .nl.on::after {
+      width: 100%
+    }
+
+    .nl.on {
+      font-weight: 500
+    }
+
+    /* shimmer button */
+    .shimmer {
+      position: relative;
+      overflow: hidden
+    }
+
+    .shimmer::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: rgba(255, 255, 255, .18);
+      transform: skewX(-20deg);
+      transition: left .4s cubic-bezier(.4, 0, .2, 1)
+    }
+
+    .shimmer:hover::after {
+      left: 160%
+    }
+
+    /* photo frames */
+    .pf {
+      overflow: hidden;
+      background: #d4d4d8
+    }
+
+    .pf img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block
+    }
+
+    /* card hover */
+    .card-h {
+      transition: transform .28s cubic-bezier(.4, 0, .2, 1), border-color .18s
+    }
+
+    .card-h:hover {
+      transform: translateY(-4px)
+    }
+
+    /* skill tag */
+    .stag {
+      transition: border-color .18s
+    }
+
+    [x-cloak] {
+      display: none !important
+    }
+  </style>
 </head>
 
 <body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
 
-<!-- ═══ NAV ═══ -->
-<header class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
-  :class="sc?'bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm shadow-black/5':''">
-  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between" aria-label="Main navigation">
+  <!-- ═══ NAV ═══ -->
+  <header class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
+    :class="sc?'bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm shadow-black/5':''">
+    <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between" aria-label="Main navigation">
 
-    <a href="#hero" class="font-display font-bold text-xl tracking-tight relative z-10">
-      <span class="text-zinc-900 dark:text-white">eli</span><span class="text-accent">ott</span>
-    </a>
-
-    <ul class="hidden md:flex items-center gap-8 text-sm" role="list">
-      <li><a href="#services" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='services'?'on !text-zinc-900 dark:!text-white':''">Services</a></li>
-      <li><a href="#work"     class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='work'?'on !text-zinc-900 dark:!text-white':''">Work</a></li>
-      <li><a href="#about"   class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='about'?'on !text-zinc-900 dark:!text-white':''">About</a></li>
-      <li><a href="#reviews" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='reviews'?'on !text-zinc-900 dark:!text-white':''">Reviews</a></li>
-      <li><a href="#blog"    class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='blog'?'on !text-zinc-900 dark:!text-white':''">Blog</a></li>
-      <li><a href="#contact" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='contact'?'on !text-zinc-900 dark:!text-white':''">Contact</a></li>
-    </ul>
-
-    <div class="flex items-center gap-3">
-      <!-- dark toggle -->
-      <button @click="dark=!dark" class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors" :aria-label="dark?'Light mode':'Dark mode'">
-        <svg x-show="!dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-        <svg x-show="dark"  class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
-      </button>
-      <!-- hire me -->
-      <a href="#contact" class="hidden md:inline-flex items-center gap-2 shimmer bg-accent text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-accent-light transition-colors">
-        Hire me <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      <a href="#hero" class="font-display font-bold text-xl tracking-tight relative z-10">
+        <span class="text-zinc-900 dark:text-white">Naman </span><span class="text-accent">Jain</span>
       </a>
-      <!-- hamburger -->
-      <button @click="mm=!mm" class="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800" :aria-expanded="mm" aria-label="Toggle menu">
-        <svg x-show="!mm" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-        <svg x-show="mm"  class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-      </button>
-    </div>
-  </nav>
 
-  <!-- mobile menu -->
-  <div x-show="mm" x-cloak
-    x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
-    x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2"
-    class="md:hidden bg-white dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-900">
-    <ul class="flex flex-col px-6 py-5 gap-4 text-sm font-medium" role="list">
-      <li><a href="#services" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Services</a></li>
-      <li><a href="#work"     @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Work</a></li>
-      <li><a href="#about"   @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">About</a></li>
-      <li><a href="#reviews" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Reviews</a></li>
-      <li><a href="#blog"    @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Blog</a></li>
-      <li><a href="#contact" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Contact</a></li>
-      <li class="pt-2 border-t border-zinc-100 dark:border-zinc-900">
-        <a href="#contact" @click="mm=false" class="inline-flex shimmer bg-accent text-white font-medium text-sm px-5 py-2.5 rounded-full">Hire me →</a>
-      </li>
-    </ul>
-  </div>
-</header>
+      <ul class="hidden md:flex items-center gap-8 text-sm" role="list">
+        <li><a href="#projects"
+            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+            :class="s==='projects'?'on !text-zinc-900 dark:!text-white':''">Work</a></li>
+        <li><a href="#overview"
+            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+            :class="s==='overview'?'on !text-zinc-900 dark:!text-white':''">About</a></li>
+        <li><a href="#contact"
+            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+            :class="s==='contact'?'on !text-zinc-900 dark:!text-white':''">Contact</a></li>
+      </ul>
 
-<main>
-
-<!-- ═══ HERO ═══ -->
-<section id="hero" class="relative min-h-screen flex items-center pt-16 overflow-hidden">
-  <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
-  <div class="absolute bottom-1/4 left-0 w-64 h-64 bg-zinc-200/50 dark:bg-zinc-800/30 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
-
-  <div class="relative z-10 max-w-6xl mx-auto px-6 py-24 w-full">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-
-      <div>
-        <p class="reveal text-sm font-medium text-accent tracking-widest uppercase mb-4">Available for work</p>
-        <h1 class="reveal d1 font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-zinc-900 dark:text-white mb-6">
-          Hi, I'm <span class="text-accent">Eliott</span>
-        </h1>
-        <p class="reveal d2 text-lg md:text-xl text-zinc-500 dark:text-zinc-400 font-light leading-relaxed max-w-md mb-10">
-          Freelance <strong class="font-medium text-zinc-700 dark:text-zinc-300">UI/UX Designer &amp; Frontend Developer</strong>. I design and build digital products that people love to use — fast, clean, and accessible.
-        </p>
-        <div class="reveal d3 flex flex-wrap gap-4">
-          <a href="#work" class="shimmer inline-flex items-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-colors text-sm">
-            View my work
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </a>
-          <a href="#contact" class="inline-flex items-center gap-2 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors text-sm">Get in touch</a>
-        </div>
-        <div class="reveal d4 flex gap-8 mt-14 pt-8 border-t border-zinc-100 dark:border-zinc-900">
-          <div><p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">34+</p><p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Projects done</p></div>
-          <div><p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">21+</p><p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Happy clients</p></div>
-          <div><p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">5y</p><p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Experience</p></div>
-        </div>
+      <div class="flex items-center gap-3">
+        <!-- dark toggle -->
+        <button @click="dark=!dark"
+          class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors"
+          :aria-label="dark?'Light mode':'Dark mode'">
+          <svg x-show="!dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+          </svg>
+          <svg x-show="dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+          </svg>
+        </button>
+        <!-- hire me -->
+        <a href="#contact"
+          class="hidden md:inline-flex items-center gap-2 shimmer bg-accent text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-accent-light transition-colors">
+          Hire me <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+        <!-- hamburger -->
+        <button @click="mm=!mm"
+          class="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800"
+          :aria-expanded="mm" aria-label="Toggle menu">
+          <svg x-show="!mm" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg x-show="mm" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
       </div>
+    </nav>
 
-      <div class="reveal d2 flex justify-center md:justify-end">
-        <div class="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
-          <div class="pf w-full h-full rounded-3xl">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="Eliott — Freelance UI/UX Designer" loading="eager">
-          </div>
-          <div class="absolute -bottom-4 -left-4 bg-accent text-white font-display font-bold text-sm px-4 py-2.5 rounded-2xl shadow-lg">Open to projects</div>
-        </div>
-      </div>
-
+    <!-- mobile menu -->
+    <div x-show="mm" x-cloak x-transition:enter="transition ease-out duration-200"
+      x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
+      x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0"
+      x-transition:leave-end="opacity-0 -translate-y-2"
+      class="md:hidden bg-white dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-900">
+      <ul class="flex flex-col px-6 py-5 gap-4 text-sm font-medium" role="list">
+        <li><a href="#projects" @click="mm=false"
+            class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Work</a></li>
+        <li><a href="#overview" @click="mm=false"
+            class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">About</a></li>
+        <li><a href="#contact" @click="mm=false"
+            class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Contact</a></li>
+        <li class="pt-2 border-t border-zinc-100 dark:border-zinc-900">
+          <a href="#contact" @click="mm=false"
+            class="inline-flex shimmer bg-accent text-white font-medium text-sm px-5 py-2.5 rounded-full">Hire me →</a>
+        </li>
+      </ul>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- ═══ SERVICES ═══ -->
-<section id="services" class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="mb-14">
-      <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">What I do</p>
-      <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">Services</h2>
-    </div>
-    <div class="grid md:grid-cols-3 gap-6">
+  <main>
 
-      <article class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
-        <div class="w-12 h-12 flex items-center justify-center bg-orange-50 dark:bg-zinc-800 rounded-xl mb-6 group-hover:bg-accent/10 transition-colors">
-          <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-2"/></svg>
-        </div>
-        <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">UI/UX Design</h3>
-        <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">From wireframes to polished Figma prototypes. Intuitive, visually compelling interfaces that convert visitors into users and put usability first.</p>
-      </article>
+    <!-- ═══ HERO ═══ -->
+    <section id="hero" class="relative min-h-screen flex items-center pt-16 overflow-hidden">
+      <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none"
+        aria-hidden="true"></div>
+      <div
+        class="absolute bottom-1/4 left-0 w-64 h-64 bg-zinc-200/50 dark:bg-zinc-800/30 rounded-full blur-3xl pointer-events-none"
+        aria-hidden="true"></div>
 
-      <article class="reveal d2 card-h group bg-zinc-900 dark:bg-zinc-800 rounded-2xl p-8 border border-zinc-800 hover:border-accent">
-        <div class="w-12 h-12 flex items-center justify-center bg-zinc-800 dark:bg-zinc-700 rounded-xl mb-6 group-hover:bg-accent/20 transition-colors">
-          <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-        </div>
-        <h3 class="font-display font-bold text-xl text-white mb-3">Frontend Dev</h3>
-        <p class="text-sm text-zinc-400 leading-relaxed">Production-grade code with Tailwind CSS and Alpine.js. Pixel-perfect, fully responsive, SEO-friendly and blazing fast — no bloat, no heavy frameworks.</p>
-      </article>
+      <div class="relative z-10 max-w-6xl mx-auto px-6 py-24 w-full">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
 
-      <article class="reveal d3 card-h group bg-white dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
-        <div class="w-12 h-12 flex items-center justify-center bg-orange-50 dark:bg-zinc-800 rounded-xl mb-6 group-hover:bg-accent/10 transition-colors">
-          <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
-        </div>
-        <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">Landing Pages</h3>
-        <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">High-converting pages for SaaS, apps and personal brands. Designed to communicate value instantly and drive action from the first scroll.</p>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══ WORK ═══ -->
-<section id="work" class="py-24">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
-      <div>
-        <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">Portfolio</p>
-        <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">Selected work</h2>
-      </div>
-      <a href="projects.html" class="reveal d1 text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors self-start sm:self-auto nl">All projects →</a>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-6">
-
-      <article class="card-h reveal d1 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent md:row-span-2">
-        <div class="pf w-full h-64 md:h-80">
-          <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=900&q=80" alt="Novu SaaS Dashboard" loading="lazy">
-        </div>
-        <div class="p-7">
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">SaaS</span>
-            <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">Figma</span>
-            <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">Tailwind</span>
-          </div>
-          <a href="case-study.html">
-            <h3 class="font-display font-bold text-2xl text-zinc-900 dark:text-white mb-2">Novu — SaaS Dashboard</h3>
-          </a>
-          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quis, odit nam aperiam fugiat optio libero. Nisi, minus officiis eius odio tempora velit fugit at, id labore ut libero reiciendis!<br><br>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa ducimus repudiandae eligendi veritatis dicta quo fuga fugiat autem tempore perspiciatis illo doloremque est labore, molestiae eius, voluptatum ex aut quibusdam.<br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur neque ipsum eveniet eligendi dolores, dicta beatae? Velit iusto nemo praesentium architecto, ipsa excepturi facere quisquam, reprehenderit a cumque sapiente? Laudantium!</p>
-          <a href="case-study.html" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">View case study <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
-        </div>
-      </article>
-
-      <article class="card-h reveal d2 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
-        <div class="pf w-full h-48">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Finlo Fintech App" loading="lazy">
-        </div>
-        <div class="p-6">
-          <div class="flex flex-wrap gap-2 mb-3">
-            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">Fintech</span>
-            <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">Landing page</span>
-          </div>
-          <a href="case-study.html">
-            <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">Finlo — Fintech App</h3>
-          </a>
-          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">Marketing site and onboarding flow for a personal finance app targeting young professionals. Tailwind CSS + Alpine.js.</p>
-          <a href="case-study.html" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">View case study →</a>
-        </div>
-      </article>
-
-      <article class="card-h reveal d3 group rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
-        <div class="pf w-full h-48">
-          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80" alt="Orea Creative Agency" loading="lazy">
-        </div>
-        <div class="p-6">
-          <div class="flex flex-wrap gap-2 mb-3">
-            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">Agency</span>
-            <span class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">Animation</span>
-          </div>
-          <a href="case-study.html">
-            <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">Orea — Creative Agency</h3>
-          </a>
-          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">Bold editorial site for a Paris-based branding studio. Scroll-driven animations and custom cursor to match their premium positioning.</p>
-          <a href=case-study.html" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">View case study →</a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══ ABOUT ═══ -->
-<section id="about" class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="grid md:grid-cols-2 gap-16 items-center">
-
-      <div class="reveal order-2 md:order-1">
-        <div class="pf w-full aspect-square max-w-sm mx-auto rounded-3xl">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&q=80" alt="Eliott" loading="lazy">
-        </div>
-      </div>
-
-      <div class="order-1 md:order-2">
-        <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">About me</p>
-        <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white leading-tight mb-6">A bit about<br>who I am</h2>
-        <p class="reveal d2 text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
-          I'm Eliott, a freelance designer and frontend developer based in Paris with 5 years of experience shipping digital products for startups, agencies, and scale-ups across Europe. I thrive at the intersection of great design and clean code.
-        </p>
-        <p class="reveal d3 text-zinc-500 dark:text-zinc-400 leading-relaxed mb-8">
-          I believe great interfaces are invisible — they get out of the user's way. My work is fast, accessible and built to last. When I'm not coding, you'll find me hiking or hunting for a good espresso.
-        </p>
-        <div class="reveal d4">
-          <p class="text-xs font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-widest mb-3">Stack &amp; tools</p>
-          <div class="flex flex-wrap gap-2" role="list" aria-label="Skills">
-            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Tailwind CSS</span>
-            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Alpine.js</span>
-            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Figma</span>
-            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">HTML / CSS</span>
-            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">JavaScript</span>
-            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Symfony</span>
-            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Framer</span>
-            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Webflow</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══ TESTIMONIALS ═══ -->
-<section id="reviews" class="py-24">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="mb-14">
-      <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">Social proof</p>
-      <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">What clients say</h2>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-6">
-
-      <blockquote class="reveal d1 bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-7 border border-zinc-100 dark:border-zinc-800">
-        <div class="flex gap-0.5 mb-5" aria-label="5 stars">
-          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-        </div>
-        <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-6 italic">"Eliott delivered our redesign in record time and the quality blew us away. Our conversion rate jumped 28% in the first month. Absolutely recommend."</p>
-        <footer class="flex items-center gap-3">
-          <div class="pf w-10 h-10 rounded-full shrink-0"><img src="https://i.pravatar.cc/80?img=11" alt="Sarah Müller" loading="lazy"></div>
           <div>
-            <p class="font-medium text-sm text-zinc-900 dark:text-white">Sarah Müller</p>
-            <p class="text-xs text-zinc-500">CPO, Novu</p>
-          </div>
-        </footer>
-      </blockquote>
-
-      <blockquote class="reveal d2 bg-zinc-900 dark:bg-zinc-800 rounded-2xl p-7 border border-zinc-800">
-        <div class="flex gap-0.5 mb-5" aria-label="5 stars">
-          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-        </div>
-        <p class="text-zinc-400 text-sm leading-relaxed mb-6 italic">"Working with Eliott is a dream. He asks the right questions, moves fast, and the final result always exceeds what we imagined. Our best hire of 2024."</p>
-        <footer class="flex items-center gap-3">
-          <div class="pf w-10 h-10 rounded-full shrink-0"><img src="https://i.pravatar.cc/80?img=52" alt="Thomas Renault" loading="lazy"></div>
-          <div>
-            <p class="font-medium text-sm text-white">Thomas Renault</p>
-            <p class="text-xs text-zinc-500">Founder, Finlo</p>
-          </div>
-        </footer>
-      </blockquote>
-
-      <blockquote class="reveal d3 bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-7 border border-zinc-100 dark:border-zinc-800">
-        <div class="flex gap-0.5 mb-5" aria-label="5 stars">
-          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-        </div>
-        <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-6 italic">"We had a tight deadline and a vague brief. Eliott turned both into a polished site in under two weeks. Clean code, zero hand-holding needed."</p>
-        <footer class="flex items-center gap-3">
-          <div class="pf w-10 h-10 rounded-full shrink-0"><img src="https://i.pravatar.cc/80?img=47" alt="Camille Dufresne" loading="lazy"></div>
-          <div>
-            <p class="font-medium text-sm text-zinc-900 dark:text-white">Camille Dufresne</p>
-            <p class="text-xs text-zinc-500">Creative Director, Orea</p>
-          </div>
-        </footer>
-      </blockquote>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══ BLOG ═══ -->
-<section id="blog" class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
-      <div>
-        <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">Thoughts</p>
-        <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">From the blog</h2>
-      </div>
-      <a href="blog.html" class="reveal d1 text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors self-start sm:self-auto nl">All articles →</a>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-6">
-
-      <article class="reveal d1 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent">
-        <div class="pf w-full h-44">
-          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=700&q=80" alt="Why I ditched CSS frameworks" loading="lazy">
-        </div>
-        <div class="p-6">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-2.5 py-1 rounded-full">Design</span>
-            <span class="text-xs text-zinc-400">Mar 8, 2025</span>
-          </div>
-          <a href="blog-article.html">
-            <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Why I ditched heavy CSS frameworks for Tailwind</h3>
-          </a>
-          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">After years of fighting specificity wars, here's what finally convinced me to make the switch.</p>
-          <a href="blog-article.html" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">Read more →</a>
-        </div>
-      </article>
-
-      <article class="reveal d2 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent">
-        <div class="pf w-full h-44">
-          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=700&q=80" alt="Design systems" loading="lazy">
-        </div>
-        <div class="p-6">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-2.5 py-1 rounded-full">Dev</span>
-            <span class="text-xs text-zinc-400">Feb 21, 2025</span>
-          </div>
-          <a href="blog-article.html">
-            <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">Building a design system from scratch in a weekend</h3>
-          </a>
-          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">Tokens, components, docs — the process I follow to spin up a coherent system in 48 hours.</p>
-          <a href="blog-article.html" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">Read more →</a>
-        </div>
-      </article>
-
-      <article class="reveal d3 card-h group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent">
-        <div class="pf w-full h-44">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=700&q=80" alt="Freelance lessons" loading="lazy">
-        </div>
-        <div class="p-6">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-2.5 py-1 rounded-full">Freelance</span>
-            <span class="text-xs text-zinc-400">Jan 14, 2025</span>
-          </div>
-          <a href="blog-article.html">
-            <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors">5 lessons from my first year of full-time freelancing</h3>
-          </a>
-          <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">Contracts, pricing, scope creep — the things nobody tells you before you go solo.</p>
-          <a href="blog-article.html" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">Read more →</a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══ CONTACT ═══ -->
-<section id="contact" class="py-24">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="bg-zinc-900 dark:bg-zinc-800 rounded-3xl p-10 md:p-16 relative overflow-hidden">
-      <div class="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
-      <div class="absolute bottom-0 left-0 w-40 h-40 bg-accent/10 rounded-full blur-2xl pointer-events-none" aria-hidden="true"></div>
-
-      <div class="relative z-10 grid md:grid-cols-2 gap-12 items-start">
-
-        <div>
-          <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">Get in touch</p>
-          <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-white leading-tight mb-5">Let's work<br>together</h2>
-          <p class="reveal d2 text-zinc-400 leading-relaxed mb-8">I'm open to UI/UX and frontend missions, short or long-term. Landing page, full product redesign, or just a second pair of eyes — let's talk.</p>
-
-          <div class="reveal d3 flex flex-col gap-4">
-            <a href="mailto:hello@eliott.dev" class="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
-              <span class="w-9 h-9 flex items-center justify-center bg-zinc-800 rounded-lg group-hover:bg-accent/20 transition-colors shrink-0">
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-              </span>
-              <span class="text-sm">hello@eliott.dev</span>
-            </a>
-            <a href="https://linkedin.com/in/eliott-dev" rel="noopener noreferrer" target="_blank" class="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
-              <span class="w-9 h-9 flex items-center justify-center bg-zinc-800 rounded-lg group-hover:bg-accent/20 transition-colors shrink-0">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-              </span>
-              <span class="text-sm">linkedin.com/in/eliott-dev</span>
-            </a>
-            <a href="https://github.com/eliott-dev" rel="noopener noreferrer" target="_blank" class="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
-              <span class="w-9 h-9 flex items-center justify-center bg-zinc-800 rounded-lg group-hover:bg-accent/20 transition-colors shrink-0">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-              </span>
-              <span class="text-sm">github.com/eliott-dev</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="reveal d2">
-          <form action="#" method="POST" novalidate>
-            <div class="flex flex-col gap-4">
-              <div class="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label for="fname" class="block text-xs font-medium text-zinc-400 mb-1.5">Name <span aria-hidden="true">*</span></label>
-                  <input type="text" id="fname" name="name" placeholder="Jane Smith" required autocomplete="name"
-                    class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors">
-                </div>
-                <div>
-                  <label for="femail" class="block text-xs font-medium text-zinc-400 mb-1.5">Email <span aria-hidden="true">*</span></label>
-                  <input type="email" id="femail" name="email" placeholder="jane@company.com" required autocomplete="email"
-                    class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors">
-                </div>
-              </div>
-              <div>
-                <label for="fsubject" class="block text-xs font-medium text-zinc-400 mb-1.5">Subject</label>
-                <input type="text" id="fsubject" name="subject" placeholder="Project inquiry"
-                  class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors">
-              </div>
-              <div>
-                <label for="fmessage" class="block text-xs font-medium text-zinc-400 mb-1.5">Message <span aria-hidden="true">*</span></label>
-                <textarea id="fmessage" name="message" rows="4" placeholder="Tell me about your project..." required
-                  class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors resize-none"></textarea>
-              </div>
-              <button type="submit" class="shimmer w-full bg-accent text-white font-display font-bold text-sm py-3.5 rounded-xl hover:bg-accent-light transition-colors">
-                Send message →
-              </button>
+            <h1
+              class="reveal d1 font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-zinc-900 dark:text-white mb-6">
+              Naman Jain
+            </h1>
+            <p
+              class="reveal d2 text-lg md:text-xl text-zinc-500 dark:text-zinc-400 font-light leading-relaxed max-w-md mb-10">
+              <strong class="font-medium text-zinc-700 dark:text-zinc-300">Aspiring AI/ML Engineer</strong>. I design and build
+              digital products that people love to use — fast, clean, and accessible.
+            </p>
+            <div class="reveal d3 flex flex-wrap gap-4">
+              <a href="#projects"
+                class="shimmer inline-flex items-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-colors text-sm">
+                View my work
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </a>
+              <a href="#contact"
+                class="inline-flex items-center gap-2 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors text-sm">Get
+                in touch</a>
             </div>
-          </form>
+          </div>
+
+          <div class="reveal d2 flex justify-center md:justify-end">
+            <div class="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
+              <div class="pf w-full h-full rounded-3xl">
+                <img src="../personal/photo.jpg" alt="Eliott — Freelance UI/UX Designer" loading="eager">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ OVERVIEW ═══ -->
+    <section id="overview" class="py-24 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800/30">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="mb-10">
+          <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">About me</p>
+          <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white mb-6">Overview
+          </h2>
+        </div>
+        <div class="max-w-3xl">
+          <p class="reveal d2 text-lg md:text-xl text-zinc-600 dark:text-zinc-400 font-light leading-relaxed mb-8">
+            Hi, I'm Naman Jain, an AI/ML engineer building generative AI systems. I work on intelligent agents, semantic search and
+            data retrieval, and language model fine-tuning—along with the infrastructure that makes them reliable and
+            production-ready. My focus is on building systems that work at scale, fail gracefully, and deliver measurable results.
+          </p>
+          <div class="reveal d3">
+            <a href="https://drive.google.com/file/d/1nGciBw7Wjew11PHiu_gu52LguYnT0z9-/view?usp=drive_link" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-blue-600 text-white font-medium px-7 py-3.5 rounded-full hover:bg-blue-700 transition-colors text-sm">
+              Resume
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ EDUCATION ═══ -->
+    <section id="education" class="py-24">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="mb-14">
+          <h2 class="reveal font-display font-bold text-3xl md:text-4xl text-accent">Education</h2>
         </div>
 
+        <div class="space-y-6 max-w-5xl">
+
+          <!-- Item 1 -->
+          <div class="reveal flex items-center">
+            <div
+              class="z-10 flex-shrink-0 w-16 h-16 bg-accent rounded-2xl flex items-center justify-center text-white text-xl font-bold shadow-lg">
+              ti
+            </div>
+            <div
+              class="flex-grow border border-zinc-100 dark:border-zinc-800 rounded-3xl p-2 ml-[-2rem] pl-12 bg-white dark:bg-[#121212]">
+              <div class="bg-slate-100 dark:bg-[#1f2937] rounded-2xl px-5 py-3.5 mb-3">
+                <span class="text-zinc-900 dark:text-white font-bold text-sm md:text-base tracking-wide">September 2023
+                  – July 2027</span>
+              </div>
+              <div class="px-4 pb-2 pt-1">
+                <p class="text-zinc-600 dark:text-zinc-300 text-sm md:text-base leading-relaxed">
+                  BE Computer Science Engineering, Thapar Institute of Engineering and Technology. CGPA : 9.15/10
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="reveal d2 flex items-center">
+            <div
+              class="z-10 flex-shrink-0 w-16 h-16 bg-accent rounded-2xl flex items-center justify-center text-white shadow-lg">
+              <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+              </svg>
+            </div>
+            <div
+              class="flex-grow border border-zinc-100 dark:border-zinc-800 rounded-3xl p-2 ml-[-2rem] pl-12 bg-white dark:bg-[#121212]">
+              <div class="bg-slate-100 dark:bg-[#1f2937] rounded-2xl px-5 py-3.5 mb-3">
+                <span class="text-zinc-900 dark:text-white font-bold text-sm md:text-base tracking-wide">July
+                  2022</span>
+              </div>
+              <div class="px-4 pb-2 pt-1">
+                <p class="text-zinc-600 dark:text-zinc-300 text-sm md:text-base leading-relaxed">
+                  Bal Vikas School, CBSE Board, 12th Standard with 95% marks in PCM.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="reveal d3 flex items-center">
+            <div
+              class="z-10 flex-shrink-0 w-16 h-16 bg-accent rounded-2xl flex items-center justify-center text-white shadow-lg">
+              <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+              </svg>
+            </div>
+            <div
+              class="flex-grow border border-zinc-100 dark:border-zinc-800 rounded-3xl p-2 ml-[-2rem] pl-12 bg-white dark:bg-[#121212]">
+              <div class="bg-slate-100 dark:bg-[#1f2937] rounded-2xl px-5 py-3.5 mb-3">
+                <span class="text-zinc-900 dark:text-white font-bold text-sm md:text-base tracking-wide">July
+                  2020</span>
+              </div>
+              <div class="px-4 pb-2 pt-1">
+                <p class="text-zinc-600 dark:text-zinc-300 text-sm md:text-base leading-relaxed">
+                  Bal Vikas School, CBSE Board, 10th Standard with 96% marks in PCM.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-</main>
+    <!-- ═══ TECH STACK ═══ -->
+    <section id="tech-stack" class="py-24 bg-zinc-50 dark:bg-zinc-900/40 border-t border-zinc-100 dark:border-zinc-800">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="mb-14 text-center">
+          <h2 class="reveal font-display font-bold text-3xl md:text-4xl text-zinc-900 dark:text-white">My preferred tech
+            stack</h2>
+        </div>
 
-<footer class="border-t border-zinc-100 dark:border-zinc-900">
+        <div class="reveal d1 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+
+          <!-- python -->
+          <div
+            class="aspect-square flex items-center justify-center p-6 bg-zinc-900 border border-zinc-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
+            <svg role="img" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"
+              id="Python--Streamline-Simple-Icons" class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
+              <desc>
+                Python Streamline Icon: https://streamlinehq.com
+              </desc>
+              <title>Python</title>
+              <path
+                d="m141.94 4.74 8.776 1.9500000000000002 7.119 2.536 5.753 2.925 4.388 3.121 3.3150000000000004 3.3150000000000004 2.4379999999999997 3.3150000000000004 1.56 3.218 0.9760000000000001 2.926 0.39 2.535 0.195 1.9500000000000002 -0.098 1.268v52.072l-0.48800000000000004 6.143 -1.2670000000000001 5.3629999999999995 -2.048 4.486 -2.535 3.705 -2.926 3.023 -3.218 2.4379999999999997 -3.413 1.853 -3.412 1.3650000000000002 -3.218 0.9750000000000001 -2.926 0.683 -2.535 0.39 -2.048 0.195H88.50300000000001l-6.728 0.487 -5.753 1.3650000000000002 -4.8759999999999994 2.146 -3.9979999999999998 2.6319999999999997 -3.218 3.121 -2.6319999999999997 3.413 -1.951 3.51 -1.462 3.608 -0.9750000000000001 3.413 -0.683 3.12 -0.39 2.633 -0.195 2.048v29.839000000000002H33.896l-2.0469999999999997 -0.293 -2.731 -0.6819999999999999 -3.12 -1.1700000000000002 -3.413 -1.756 -3.51 -2.535 -3.511 -3.51 -3.413 -4.486 -3.12 -5.753 -2.7300000000000004 -7.118 -2.048 -8.581999999999999 -1.3650000000000002 -10.238L2.4 119.708l0.5850000000000001 -11.897 1.56 -10.141 2.341 -8.484 3.12 -6.923 3.51 -5.558 3.901 -4.2909999999999995 4.095 -3.218 4.096 -2.3400000000000003 3.9000000000000004 -1.56 3.511 -0.9750000000000001 3.12 -0.48800000000000004 2.341 -0.097h1.56l0.5850000000000001 0.097h79.57V55.739999999999995H63.248L63.150000000000006 28.924l-0.195 -3.608 0.48800000000000004 -3.316 1.072 -3.023 1.658 -2.7300000000000004 2.4379999999999997 -2.535 3.023 -2.243 3.705 -1.9500000000000002 4.2909999999999995 -1.755 4.973 -1.463 5.656 -1.1700000000000002 6.24 -0.9750000000000001 6.924 -0.5850000000000001 7.508 -0.39 8.191 -0.195 12.384 0.487ZM80.507 24.048l-2.242 3.218 -0.78 3.9979999999999998 0.78 3.9979999999999998 2.242 3.3150000000000004 3.218 2.145 3.9979999999999998 0.878 3.9979999999999998 -0.878 3.218 -2.145 2.243 -3.3150000000000004 0.78 -3.9979999999999998 -0.78 -3.9979999999999998 -2.243 -3.218 -3.218 -2.146 -3.9979999999999998 -0.877 -3.9979999999999998 0.877Zm127.644 38.517 2.731 0.5850000000000001 3.12 1.1700000000000002 3.413 1.756 3.51 2.6319999999999997 3.511 3.413 3.413 4.583 3.12 5.7540000000000004 2.7300000000000004 7.118 2.048 8.581 1.3650000000000002 10.141 0.48800000000000004 11.994 -0.5850000000000001 11.994 -1.56 10.142 -2.341 8.386 -3.12 6.923 -3.511 5.558 -3.9000000000000004 4.388 -4.096 3.218 -4.095 2.341 -3.901 1.56 -3.51 0.877 -3.12 0.48800000000000004 -2.341 0.195 -1.56 -0.097h-80.155v7.9959999999999996h56.947l0.098 26.913 0.195 3.51 -0.48800000000000004 3.316 -1.072 3.023 -1.658 2.828 -2.4379999999999997 2.437 -3.023 2.341 -3.705 1.9500000000000002 -4.2909999999999995 1.658 -4.973 1.462 -5.656 1.268 -6.24 0.878 -6.924 0.6819999999999999 -7.508 0.39 -8.191 0.098 -12.384 -0.39 -10.434000000000001 -1.366 -8.776 -1.9500000000000002 -7.119 -2.4379999999999997 -5.753 -2.925 -4.388 -3.218 -3.3150000000000004 -3.3150000000000004 -2.4379999999999997 -3.316 -1.56 -3.218 -0.9760000000000001 -2.925 -0.39 -2.4379999999999997 -0.195 -1.9500000000000002 0.098 -1.268v-52.071l0.48800000000000004 -6.241 1.2670000000000001 -5.266 2.048 -4.485 2.535 -3.706 2.926 -3.12 3.218 -2.341 3.413 -1.9500000000000002 3.412 -1.3650000000000002 3.218 -0.9750000000000001 2.926 -0.5850000000000001 2.535 -0.39 2.048 -0.195 1.268 -0.098h56.947l6.728 -0.487 5.753 -1.3650000000000002 4.8759999999999994 -2.048 3.9979999999999998 -2.731 3.218 -3.12 2.633 -3.413 1.9500000000000002 -3.51 1.463 -3.511 0.9750000000000001 -3.413 0.6819999999999999 -3.12 0.39 -2.7300000000000004 0.195 -2.048V62.175000000000004h20.38l1.366 0.098Zm-63.09 138.955 -2.243 3.218 -0.78 3.9979999999999998 0.78 3.9979999999999998 2.243 3.218 3.218 2.243 3.9979999999999998 0.78 3.9979999999999998 -0.78 3.218 -2.243 2.242 -3.218 0.78 -3.9979999999999998 -0.78 -3.9979999999999998 -2.242 -3.218 -3.218 -2.242 -3.9979999999999998 -0.781 -3.9979999999999998 0.781Z"
+                fill="#031df8" stroke-width="10"></path>
+            </svg>
+          </div>
+
+          <!-- numpy -->
+          <div
+            class="aspect-square flex items-center justify-center p-6 bg-zinc-900 border border-zinc-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
+            <svg role="img" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" id="Numpy--Streamline-Simple-Icons"
+              class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
+              <desc>
+                Numpy Streamline Icon: https://streamlinehq.com
+              </desc>
+              <title>NumPy</title>
+              <path
+                d="M103.14999999999999 48.760000000000005 63.048 28.517000000000003l-44.01 21.965 41.186 20.683zm18.381 9.277 42.045 21.223 -43.622 21.906 -41.25 -20.718zm56.153000000000006 -29.213 43.193 21.658 -38.63 19.402 -42.131 -21.252zm-18.59 -9.328999999999999L120.21000000000001 0 81.742 19.193l40.068 20.208zm-30.400999999999996 167.44299999999998V240l47.107 -23.506999999999998 -0.053 -53.08500000000001zm47.037000000000006 -42.057 -0.052 -52.528 -46.985 23.355999999999998v52.546zm56.553000000000004 -9.845v53.269999999999996l-40.178000000000004 20.052 -0.028999999999999998 -53.028000000000006zm0 -18.626V64.214l-40.253 20.009999999999998 0.033999999999999996 52.633zm-120.221 -0.7000000000000001L80.333 99.756v68.94999999999999s-38.804 -82.564 -42.398999999999994 -89.97999999999999c-0.463 -0.957 -2.371 -2.0069999999999997 -2.858 -2.262C28.118 72.812 7.73 62.485 7.73 62.485V184.3l28.203999999999997 15.076v-63.674s38.391999999999996 73.775 38.78 74.58c0.38899999999999996 0.8069999999999999 4.245 8.581999999999999 8.362 11.314 5.484999999999999 3.63 28.992 17.766 28.992 17.766z"
+                fill="#031df8" stroke-width="10"></path>
+            </svg>
+          </div>
+
+          <!-- pandas -->
+          <div
+            class="aspect-square flex items-center justify-center p-6 bg-zinc-900 border border-zinc-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
+            <svg role="img" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"
+              id="Pandas--Streamline-Simple-Icons" class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
+              <desc>
+                Pandas Streamline Icon: https://streamlinehq.com
+              </desc>
+              <title>pandas</title>
+              <path
+                d="M169.22 0h26.230000000000004v181.04h-26.230000000000004zm-41.260000000000005 129.4h26.230000000000004v25.7h-26.230000000000004zm0 -70.37h26.230000000000004v54.459999999999994h-26.230000000000004zm0 111.97h26.230000000000004v54.459999999999994h-26.230000000000004zM44.56 58.96h26.22V240H44.55zm42.13 25.590000000000003h26.230000000000004v25.7H86.7zm0 41.51h26.230000000000004v54.47H86.7zm0 -111.86999999999999h26.230000000000004v54.459999999999994H86.7Z"
+                fill="#031df8" stroke-width="10"></path>
+            </svg>
+          </div>
+
+          <!-- tensorflow -->
+          <div
+            class="aspect-square flex items-center justify-center p-6 bg-zinc-900 border border-zinc-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
+            <svg role="img" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"
+              id="Tensorflow--Streamline-Simple-Icons" class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
+              <desc>
+                Tensorflow Streamline Icon: https://streamlinehq.com
+              </desc>
+              <title>TensorFlow</title>
+              <path
+                d="M12.92 58.56 115.39999999999999 0v240l-40.949999999999996 -23.78V76.03l-61.68 35.64 0.15 -53.099999999999994zm214.3 53.11 -0.14 -53.099999999999994L124.60000000000001 0v240l40.949999999999996 -23.78V148.7l30.92 17.88 -0.18 -46.18000000000001 -30.74 -17.56V76.03l61.68 35.64z"
+                fill="#031df8" stroke-width="10"></path>
+            </svg>
+          </div>
+
+          <!-- pytorch -->
+          <div
+            class="aspect-square flex items-center justify-center p-6 bg-zinc-900 border border-zinc-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
+            <svg role="img" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"
+              id="Pytorch--Streamline-Simple-Icons" class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
+              <desc>
+                Pytorch Streamline Icon: https://streamlinehq.com
+              </desc>
+              <title>PyTorch</title>
+              <path
+                d="M120.05000000000001 0 49.519999999999996 70.53a98.65 98.65 0 0 0 0 140.22 98.66 98.66 0 0 0 140.22 0c39.84 -39 39.86 -102.05 0.8500000000000001 -140.23l-17.44 17.43c29.04 29.049999999999997 29.04 76.34 0 105.38s-76.34 29.04 -105.38 0 -29.04 -76.34 0 -105.38l46.47 -46.46 5.819999999999999 -6.65zm35.68 38.99a13.27 13.27 0 0 0 -13.27 13.27 13.27 13.27 0 0 0 13.27 13.280000000000001A13.27 13.27 0 0 0 169 52.26 13.27 13.27 0 0 0 155.73000000000002 39z"
+                fill="#031df8" stroke-width="10"></path>
+            </svg>
+          </div>
+
+          <!-- langchain -->
+          <div
+            class="aspect-square flex items-center justify-center p-6 bg-zinc-900 border border-zinc-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
+            <svg role="img" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"
+              id="Langchain--Streamline-Simple-Icons" class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
+              <desc>
+                Langchain Streamline Icon: https://streamlinehq.com
+              </desc>
+              <title>LangChain</title>
+              <path
+                d="M60.988 59.175000000000004C27.359 59.175000000000004 0 86.462 0 120s27.360000000000003 60.824999999999996 60.988 60.824999999999996h118.024C212.641 180.825 240 153.538 240 120s-27.360000000000003 -60.824999999999996 -60.988 -60.824999999999996ZM59.774 78.51c4.93 0.124 10.2 2.496 12.729999999999999 6.228 3.673 4.592 4.7780000000000005 10.668 8.943999999999999 14.932 5.604 6.118 11.99 11.505 17.161 18.02 4.892 5.954000000000001 8.386 12.937000000000001 11.436 19.975 1.244 2.335 1.2570000000000001 5.202 3.1 7.197 0.908 1.204 5.346 4.483 4.383 5.645 0.555 1.204 4.702 2.86 3.263 4.027 -1.944 0.4 -4.129 0.47600000000000003 -5.616 -1.0739999999999998 -0.5489999999999999 1.26 -1.83 0.596 -2.819 0.43200000000000005a40 40 0 0 0 -0.25 0.736c-3.288 0.219 -5.7540000000000004 -3.126 -7.32 -5.6499999999999995 -3.1109999999999998 -1.6800000000000002 -6.642 -2.702 -9.82 -4.46 -0.182 2.8949999999999996 0.45199999999999996 6.484999999999999 -2.31 8.353 -0.14 5.5649999999999995 8.436 0.656 9.222 4.804 -0.61 0.067 -1.286 -0.095 -1.774 0.373 -2.239 2.172 -4.805 -1.645 -7.385000000000001 -0.07 -3.464 1.7399999999999998 -3.8080000000000003 3.161 -8.096 3.5199999999999996 -0.237 -0.359 -0.14300000000000002 -0.5920000000000001 0.059 -0.811 1.207 -1.399 1.295 -3.046 3.356 -3.6430000000000002 -2.122 -0.33399999999999996 -3.899 0.833 -5.686 1.757 -2.323 0.95 -2.304 -2.141 -5.878 0.164 -0.396 -0.322 -0.208 -0.615 0.018 -0.8640000000000001 0.908 -1.107 2.102 -1.27 3.4499999999999997 -1.208 -6.630000000000001 -3.686 -9.751 4.507 -12.813 0.43200000000000005 -0.9199999999999999 0.243 -1.2650000000000001 1.068 -1.845 1.6520000000000001 -0.5 -0.548 -0.123 -1.212 -0.099 -1.857 -0.598 -0.28 -1.3559999999999999 -0.41000000000000003 -1.179 -1.366 -1.171 -0.395 -1.988 0.295 -2.86 0.9520000000000001 -0.787 -0.608 0.532 -1.492 0.776 -2.125 0.702 -1.216 2.3000000000000003 -0.25 3.1109999999999998 -1.1260000000000001 2.306 -1.308 5.5200000000000005 0.8140000000000001 8.155 0.45499999999999996 2.0300000000000002 0.255 4.5440000000000005 -1.825 3.5260000000000002 -3.9000000000000004 -2.171 -2.767 -1.79 -6.385999999999999 -1.839 -9.695 -0.268 -1.9289999999999998 -4.91 -4.382 -6.252 -6.462 -1.6589999999999998 -1.873 -2.9499999999999997 -4.047 -4.243 -6.1819999999999995 -4.666 -9.008000000000001 -3.1979999999999995 -20.583999999999996 -9.077 -28.947 -2.66 1.4660000000000002 -6.125 0.774 -8.418 -1.19 -1.238 1.125 -1.292 2.598 -1.3900000000000001 4.1610000000000005 -2.9699999999999998 -2.962 -2.593 -8.559 -0.21999999999999997 -11.855 0.969 -1.302 2.127 -2.373 3.4200000000000004 -3.316 0.292 -0.213 0.391 -0.419 0.385 -0.747 1.174 -5.2669999999999995 5.764 -7.391 10.693999999999999 -7.267m124.071 4.6000000000000005c5.575 0 10.806000000000001 2.1590000000000003 14.74 6.082s6.1 9.145 6.1 14.703999999999999c0 5.5600000000000005 -2.167 10.780000000000001 -6.1 14.698v0.005999999999999999l-9.02 8.995a20.8 20.8 0 0 1 -8.597 5.1659999999999995l-0.164 0.047 -0.057999999999999996 0.164a20.5 20.5 0 0 1 -4.74 7.308l-9.018 8.995c-3.934 3.9240000000000004 -9.17 6.082999999999999 -14.745 6.082999999999999s-10.806000000000001 -2.16 -14.74 -6.082999999999999c-8.129999999999999 -8.107 -8.129999999999999 -21.294 0 -29.402l9.019 -8.995a20.560000000000002 20.560000000000002 0 0 1 8.58 -5.143l0.17 -0.053 0.057999999999999996 -0.15800000000000003a20.7 20.7 0 0 1 4.752 -7.337l9.018 -8.995c3.934 -3.9240000000000004 9.171 -6.082999999999999 14.745 -6.082999999999999zm0 8.965a11.799999999999999 11.799999999999999 0 0 0 -8.388 3.462l-9.018 8.995a11.81 11.81 0 0 0 -3.427 9.252l0.053 0.5720000000000001c0.323 2.652 1.49 5.044 3.3739999999999997 6.917 1.3 1.2959999999999998 2.7329999999999997 2.114 4.471 2.686a9 9 0 0 1 0.14 1.582 8.84 8.84 0 0 1 -2.609 6.303999999999999l-0.5539999999999999 0.5539999999999999c-3.013 -1.028 -5.525 -2.5300000000000002 -7.794 -4.792a20.6 20.6 0 0 1 -5.760999999999999 -10.968l-0.099 -0.578 -0.461 0.368a11 11 0 0 0 -0.876 0.794l-9.024 8.995c-4.623 4.61 -4.623 12.12 0 16.73 2.311 2.305 5.3500000000000005 3.46 8.394 3.4610000000000003 3.043 0 6.077 -1.156 8.388 -3.462l9.019 -8.995c4.623 -4.61 4.623 -12.113 0 -16.73a11.7 11.7 0 0 0 -4.367 -2.7489999999999997 10 10 0 0 1 -0.14 -1.611c0 -2.591 1.0230000000000001 -5.05 2.9010000000000002 -6.923 3.019 1.028 5.699999999999999 2.694 7.962 4.95 3.007 2.999 4.994 6.790000000000001 5.756 10.968l0.10500000000000001 0.578 0.45499999999999996 -0.373a11 11 0 0 0 0.887 -0.794l9.02 -8.995999999999999c4.622 -4.61 4.628 -12.123999999999999 0 -16.735a11.799999999999999 11.799999999999999 0 0 0 -8.395 -3.462Zm-99.73 51.567 -0.005999999999999999 0.005999999999999999c-0.7929999999999999 3.0780000000000003 -1.048 8.318 -5.0600000000000005 8.469999999999999 -0.33 1.776 1.228 2.445 2.6550000000000002 1.874 1.41 -0.645 2.081 0.508 2.557 1.6569999999999998 2.177 0.317 5.394 -0.725 5.516 -3.298 -3.25 -1.867 -4.253 -5.417999999999999 -5.662000000000001 -8.709"
+                fill="#031df8" stroke-width="10"></path>
+            </svg>
+          </div>
+
+          <!-- postgres -->
+          <div
+            class="aspect-square flex items-center justify-center p-6 bg-zinc-900 border border-zinc-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
+            <svg role="img" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"
+              id="Postgresql--Streamline-Simple-Icons" class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
+              <desc>
+                Postgresql Streamline Icon: https://streamlinehq.com
+              </desc>
+              <title>PostgreSQL</title>
+              <path
+                d="M235.594 147.228a5.269 5.269 0 0 0 -0.5630000000000001 -1.191c-1.3900000000000001 -2.6319999999999997 -4.768 -3.418 -10.074000000000002 -2.321 -16.533 3.411 -22.935 1.312 -25.256 -0.191 13.420000000000002 -20.482 24.45 -45.22 30.411 -68.297 2.7139999999999995 -10.507 7.982 -35.236999999999995 1.222 -47.316a15.641 15.641 0 0 0 -1.5090000000000001 -2.3499999999999996C216.931 9.086 198.007 0.248 175.099 0.005c-14.947 -0.15800000000000003 -27.705000000000002 3.4610000000000003 -31.160999999999998 4.794a94.49 94.49 0 0 0 -5.159000000000001 -0.8160000000000001 80.44 80.44 0 0 0 -13.113999999999999 -1.278c-11.822 -0.184 -22.038000000000004 2.642 -30.497999999999998 8.406 -8.573 -3.211 -47.888000000000005 -16.45 -72.219 0.7879999999999999C9.359 21.526 3.086 38.733 4.3020000000000005 63.04299999999999c0.409 8.18 5.069 33.34 12.423 57.436 4.598 15.065 9.387 27.019000000000002 14.334 35.82 5.53 9.942 11.258999999999999 15.933 17.143 17.895 4.474 1.491 11.327 1.441 18.581 -7.279 8.012 -9.635 15.903 -18.258000000000003 19.446 -22.069000000000003 4.351 2.355 9.064 3.625 13.899999999999999 3.772a0.569 0.569 0 0 0 0.004 0.041 110.312 110.312 0 0 0 -2.472 3.0540000000000003c-3.389 4.3020000000000005 -4.093999999999999 5.197000000000001 -15.001999999999999 7.443 -3.102 0.64 -11.344000000000001 2.339 -11.464 8.115 -0.025 1.224 0.32899999999999996 2.309 0.9189999999999999 3.268 2.269 4.231 9.216 6.097 10.149999999999999 6.3309999999999995 13.345 3.335 25.044 0.9199999999999999 33.714 -6.787 -0.17 22.31 0.775 44.174 3.4539999999999997 50.873999999999995 2.212 5.529 7.618 19.045 24.692 19.043 2.505 0 5.263 -0.29100000000000004 8.296 -0.9410000000000001 17.819 -3.8209999999999997 25.557 -11.696 28.55 -29.058999999999997 1.503 -8.707 4.016 -28.753 5.388 -41.012 0.16899999999999998 -0.7030000000000001 0.35700000000000004 -1.207 0.5700000000000001 -1.3619999999999999 0.007 -0.005 0.697 -0.47100000000000003 4.272 0.307a3.673 3.673 0 0 0 0.443 0.06799999999999999l2.539 0.223 0.149 0.01c8.468 0.38399999999999995 19.114 -1.4260000000000002 25.312 -4.308 6.438000000000001 -2.988 18.057000000000002 -10.323 15.951 -16.698zM23.71 118.765c-7.4350000000000005 -24.358 -11.779 -48.851000000000006 -12.123 -55.719 -1.086 -21.714000000000002 4.171 -36.829 15.623000000000001 -44.927 18.367 -12.986 48.398 -5.4079999999999995 61.08 -1.3 -0.032 0.032 -0.066 0.061000000000000006 -0.098 0.094 -20.238 20.44 -19.758 55.36 -19.708000000000002 57.495000000000005 -0.002 0.823 0.066 1.9889999999999999 0.16199999999999998 3.593 0.348 5.873 0.996 16.804 -0.735 29.184 -1.609 11.504000000000001 1.937 22.764000000000003 9.728 30.892 0.806 0.841 1.6480000000000001 1.631 2.5180000000000002 2.374 -3.468 3.714 -11.004000000000001 11.926000000000002 -19.025000000000002 21.576 -5.677 6.825 -9.597 5.5169999999999995 -10.886 5.087000000000001 -3.9190000000000005 -1.3070000000000002 -8.129999999999999 -5.8709999999999996 -12.381 -13.223 -4.796 -8.39 -9.635 -20.317 -14.155 -35.126zm60.072 50.871c-1.711 -0.428 -3.271 -1.132 -4.322 -1.772 0.889 -0.39399999999999996 2.374 -0.902 4.833 -1.409 12.833000000000002 -2.641 14.815000000000001 -4.506 19.143 -10.001999999999999 0.992 -1.26 2.116 -2.687 3.673 -4.426a3.549 3.549 0 0 0 0.737 -1.298c1.7080000000000002 -1.513 2.7239999999999998 -1.099 4.369 -0.41700000000000004 1.56 0.646 3.0780000000000003 2.6 3.695 4.752 0.29100000000000004 1.016 0.619 2.945 -0.45199999999999996 4.444 -9.043 12.658000000000001 -22.216 12.494 -31.676000000000002 10.128zm20.939999999999998 -39.88 -0.525 1.41c-1.33 3.566 -2.5669999999999997 6.881 -3.3339999999999996 10.03 -6.6739999999999995 -0.020999999999999998 -13.168 -2.872 -18.105 -8.024000000000001 -6.279 -6.551 -9.131 -15.664 -7.824999999999999 -25.003999999999998 1.8279999999999998 -13.079 1.153 -24.468 0.79 -30.586000000000002 -0.05 -0.857 -0.095 -1.6070000000000002 -0.12200000000000001 -2.1990000000000003 2.9570000000000003 -2.621 16.659 -9.962 26.429000000000002 -7.724 4.4590000000000005 1.022 7.176 4.057 8.305 9.280000000000001 5.846 27.038000000000004 0.774 38.307 -3.302 47.363 -0.8400000000000001 1.8659999999999999 -1.633 3.629 -2.311 5.454zm73.637 45.724999999999994c-0.16899999999999998 1.7680000000000002 -0.358 3.76 -0.618 5.959l-1.46 4.383a3.547 3.547 0 0 0 -0.182 1.077c-0.059 4.747 -0.54 6.489000000000001 -1.1500000000000001 8.693 -0.634 2.292 -1.353 4.891 -1.794 10.575000000000001 -1.1 14.142999999999999 -8.782 22.267000000000003 -24.171999999999997 25.565 -15.155000000000001 3.251 -17.843 -4.968 -20.212 -12.217a65.824 65.824 0 0 0 -0.7689999999999999 -2.266c-2.154 -5.858 -1.911 -14.119 -1.574 -25.551 0.165 -5.612 -0.249 -19.012999999999998 -3.302 -26.462 0.044000000000000004 -2.9320000000000004 0.106 -5.909 0.19 -8.918000000000001a3.529 3.529 0 0 0 -0.153 -1.1260000000000001 14.927 14.927 0 0 0 -0.439 -2.08c-1.226 -4.283 -4.213 -7.866 -7.797 -9.351 -1.424 -0.59 -4.038 -1.672 -7.178 -0.869 0.67 -2.7600000000000002 1.8310000000000002 -5.875 3.09 -9.249l0.529 -1.42c0.595 -1.6 1.34 -3.2569999999999997 2.13 -5.012 4.265 -9.475999999999999 10.106 -22.453 3.766 -51.772 -2.374 -10.981000000000002 -10.304 -16.343 -22.324 -15.098 -7.207 0.746 -13.799 3.654 -17.088 5.321a56.715999999999994 56.715999999999994 0 0 0 -1.958 1.041c0.918 -11.064 4.386 -31.741 17.357 -44.82300000000001a40.306 40.306 0 0 1 3.0330000000000004 -2.7600000000000002 3.532 3.532 0 0 0 1.447 -0.644c7.523999999999999 -5.7059999999999995 16.945 -8.506 28.02 -8.325 4.091 0.067 8.017 0.33899999999999997 11.741999999999999 0.81 19.39 3.544 32.439 14.468 40.358999999999995 23.826999999999998 8.143 9.623000000000001 12.552000000000001 19.315 14.312000000000001 24.543 -13.232 -1.346 -22.233999999999998 1.268 -26.797 7.79 -9.926 14.189 5.430000000000001 41.729 12.811 54.964000000000006 1.353 2.426 2.522 4.522 2.889 5.413 2.403 5.825 5.515 9.713000000000001 7.786999999999999 12.552000000000001 0.696 0.8699999999999999 1.3719999999999999 1.714 1.885 2.45 -4.008 1.155 -11.208 3.825 -10.552 17.17 -0.123 1.563 -0.423 4.469 -0.8340000000000001 8.148 -0.461 2.077 -0.702 4.603 -0.994 7.662zm8.905 -16.211c-0.405 -8.316 2.691 -9.185 5.9670000000000005 -10.105a28.566 28.566 0 0 0 1.35 -0.40599999999999997 12.02 12.02 0 0 0 1.342 1.03c5.703 3.765 15.823 4.213 30.068 1.3439999999999999 -2.016 1.7690000000000001 -5.189 3.9939999999999998 -9.533000000000001 6.010999999999999 -4.098 1.903 -10.956999999999999 3.33 -17.473 3.6359999999999997 -7.197 0.33599999999999997 -10.859000000000002 -0.8069999999999999 -11.721 -1.51zm5.695 -92.712c-0.059 3.508 -0.542 6.692 -1.0539999999999998 10.017 -0.55 3.5759999999999996 -1.12 7.274000000000001 -1.2640000000000002 11.761999999999999 -0.14200000000000002 4.368 0.40399999999999997 8.909 0.932 13.301 1.066 8.870000000000001 2.16 18.003 -2.0749999999999997 27.014a35.272 35.272 0 0 1 -1.876 -3.856c-0.5269999999999999 -1.2759999999999998 -1.669 -3.326 -3.251 -6.162 -6.156000000000001 -11.041 -20.573999999999998 -36.896 -13.193 -47.446 3.795 -5.427 13.408 -5.6610000000000005 21.781000000000002 -4.63zm2.284 70.137a123.762 123.762 0 0 0 -0.853 -1.0739999999999998l-0.355 -0.444c7.262 -11.995000000000001 5.8420000000000005 -23.862000000000002 4.577999999999999 -34.385 -0.519 -4.3180000000000005 -1.0090000000000001 -8.396 -0.885 -12.225999999999999 0.129 -4.061 0.666 -7.542999999999999 1.185 -10.911 0.639 -4.1499999999999995 1.288 -8.443000000000001 1.109 -13.505 0.134 -0.531 0.188 -1.158 0.118 -1.9020000000000001 -0.45699999999999996 -4.8549999999999995 -5.999 -19.38 -17.294 -32.53 -6.0760000000000005 -7.073 -14.896 -14.972000000000001 -26.889 -20.395 5.251 -1.066 12.328 -2.0349999999999997 20.244 -1.859 20.515 0.456 36.745999999999995 8.135 48.242000000000004 22.823999999999998a9.08 9.08 0 0 1 0.6669999999999999 1.002c7.231 13.556 -2.762 62.751000000000005 -29.866999999999997 105.405zm-88.166 -61.162c-0.25 1.794 -3.089 4.225 -6.211 4.225a5.821 5.821 0 0 1 -0.8089999999999999 -0.056c-1.873 -0.26 -3.765 -1.44 -5.059 -3.1559999999999997 -0.458 -0.605 -1.203 -1.7799999999999998 -1.055 -2.844 0.05499999999999999 -0.40099999999999997 0.261 -0.9850000000000001 0.925 -1.488 1.182 -0.8939999999999999 3.518 -1.226 6.096 -0.867 3.1630000000000003 0.441 6.425999999999999 1.938 6.1129999999999995 4.186zm79.305 -4.114c0.111 0.792 -0.49 2.0100000000000002 -1.5310000000000001 3.102 -0.683 0.717 -2.12 1.9609999999999999 -4.079 2.232a5.4559999999999995 5.4559999999999995 0 0 1 -0.75 0.052c-2.9349999999999996 0 -5.414 -2.344 -5.606999999999999 -3.7169999999999996 -0.24 -1.765 2.641 -3.106 5.611000000000001 -3.5199999999999996 2.9699999999999998 -0.414 6.111 0.08800000000000001 6.356000000000001 1.851z"
+                fill="#031df8" stroke-width="10"></path>
+            </svg>
+          </div>
+
+          <!-- mysql -->
+          <div
+            class="aspect-square flex items-center justify-center p-6 bg-zinc-900 border border-zinc-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
+            <svg role="img" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" id="Mysql--Streamline-Simple-Icons"
+              class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
+              <desc>
+                Mysql Streamline Icon: https://streamlinehq.com
+              </desc>
+              <title>MySQL</title>
+              <path
+                d="M164.05 55.010000000000005c-1.1500000000000001 0 -1.9300000000000002 0.14 -2.74 0.33v0.13h0.14c0.54 1.04 1.46 1.7999999999999998 2.14 2.7300000000000004 0.54 1.07 1 2.14 1.54 3.2l0.14 -0.15c0.94 -0.66 1.4000000000000001 -1.7199999999999998 1.4000000000000001 -3.33 -0.4 -0.47 -0.45999999999999996 -0.94 -0.8 -1.4000000000000001 -0.4 -0.67 -1.26 -1 -1.7999999999999998 -1.53zM57.699999999999996 186.95h-9.27a508.53999999999996 508.53999999999996 0 0 0 -2.7 -44.1h-0.08l-14.1 44.1H24.5l-14 -44.1h-0.1a728.92 728.92 0 0 0 -1.9500000000000002 44.1H0c0.55 -19.66 1.92 -38.1 4.1 -55.300000000000004h11.5l13.35 40.64h0.08l13.469999999999999 -40.64h10.95c2.42 20.150000000000002 3.84 38.6 4.28 55.300000000000004zm40.17 -40.8c-3.7800000000000002 20.45 -8.76 35.33 -14.92 44.6 -4.82 7.16 -10.1 10.73 -15.83 10.73 -1.53 0 -3.4000000000000004 -0.45999999999999996 -5.659999999999999 -1.3800000000000001v-4.9399999999999995c1.1 0.17 2.4 0.26 3.8600000000000003 0.26 2.68 0 4.83 -0.75 6.470000000000001 -2.22 1.9700000000000002 -1.7999999999999998 2.9499999999999997 -3.8200000000000003 2.9499999999999997 -6.05 0 -1.55 -0.77 -4.699999999999999 -2.3000000000000003 -9.44L62.300000000000004 146.15h9.1l7.27 23.599999999999998c1.6400000000000001 5.36 2.33 9.1 2.05 11.23 4 -10.64 6.78 -22.27 8.35 -34.83zm123.25 40.8h-26.299999999999997v-55.300000000000004h8.85v48.5h17.450000000000003zm-33.199999999999996 1.35 -10.16 -5c0.8999999999999999 -0.76 1.77 -1.58 2.55 -2.5 4.33 -5.0600000000000005 6.48 -12.58 6.48 -22.53 0 -18.3 -7.18 -27.46 -21.549999999999997 -27.46 -7.039999999999999 0 -12.54 2.3200000000000003 -16.5 6.97 -4.3 5.08 -6.46 12.56 -6.46 22.450000000000003 0 9.719999999999999 1.9 16.86 5.739999999999999 21.400000000000002 3.5 4.1 8.77 6.15 15.83 6.15 2.64 0 5.0600000000000005 -0.33 7.25 -0.98l13.25 7.720000000000001 3.5999999999999996 -6.22zM155 175.88c-2.25 -3.5999999999999996 -3.37 -9.399999999999999 -3.37 -17.36 0 -13.93 4.24 -20.9 12.7 -20.9 4.43 0 7.7 1.6700000000000002 9.77 5 2.24 3.62 3.3600000000000003 9.360000000000001 3.3600000000000003 17.23 0 14.04 -4.24 21.080000000000002 -12.7 21.080000000000002 -4.45 0 -7.7 -1.6700000000000002 -9.78 -5zm-16.58 -4.25c0 4.699999999999999 -1.7199999999999998 8.56 -5.16 11.559999999999999 -3.4399999999999995 3 -8.030000000000001 4.5 -13.84 4.5 -5.430000000000001 0 -10.64 -1.7199999999999998 -15.73 -5.15l2.37 -4.76c4.38 2.2 8.33 3.2800000000000002 11.899999999999999 3.2800000000000002 3.3200000000000003 0 5.93 -0.73 7.83 -2.2a7.54 7.54 0 0 0 3 -6.15c0 -3.3000000000000003 -2.3000000000000003 -6.1 -6.48 -8.45 -3.88 -2.13 -11.63 -6.57 -11.63 -6.57 -4.22 -3.07 -6.32 -6.36 -6.32 -11.77 0 -4.5 1.57 -8.100000000000001 4.699999999999999 -10.85 3.15 -2.7800000000000002 7.199999999999999 -4.1499999999999995 12.2 -4.1499999999999995 5.12 0 9.8 1.36 14 4.1l-2.13 4.76a27.259999999999998 27.259999999999998 0 0 0 -10.64 -2.3000000000000003c-2.8299999999999996 0 -5.02 0.68 -6.54 2.06a6.8500000000000005 6.8500000000000005 0 0 0 -2.48 5.24c0 3.2800000000000002 2.3400000000000003 6.1 6.66 8.5 3.93 2.15 11.870000000000001 6.7 11.870000000000001 6.7 4.33 3.05 6.48 6.3 6.48 11.68zm93.82 -58.52c-5.3500000000000005 -0.14 -9.5 0.4 -12.969999999999999 1.88 -1 0.4 -2.6 0.4 -2.74 1.6700000000000002 0.55 0.53 0.63 1.4000000000000001 1.1 2.14 0.8 1.34 2.18 3.13 3.46 4.069999999999999 1.4000000000000001 1.1 2.8000000000000003 2.16 4.27 3.1 2.6 1.6 5.550000000000001 2.55 8.100000000000001 4.16 1.45 0.94 2.9299999999999997 2.13 4.4 3.13 0.73 0.5 1.2 1.4000000000000001 2.14 1.7199999999999998v-0.2c-0.45999999999999996 -0.6 -0.6 -1.47 -1.05 -2.14 -0.67 -0.67 -1.34 -1.27 -2 -1.9300000000000002a32.23 32.23 0 0 0 -6.949999999999999 -6.75c-2.14 -1.46 -6.82 -3.5 -7.7 -5.949999999999999l-0.13 -0.14c1.46 -0.13 3.2 -0.66 4.6000000000000005 -1.06 2.27 -0.6 4.35 -0.47 6.7 -1.06 1.06 -0.27 2.13 -0.6 3.2 -0.94v-0.6c-1.2 -1.2 -2.1 -2.8299999999999996 -3.3400000000000003 -3.95a88.67000000000002 88.67000000000002 0 0 0 -11.040000000000001 -8.23c-2.1 -1.34 -4.76 -2.2 -6.97 -3.3400000000000003 -0.8 -0.4 -2.14 -0.6 -2.6 -1.27 -1.2 -1.46 -1.9 -3.4000000000000004 -2.75 -5.140000000000001a176.9 176.9 0 0 1 -5.470000000000001 -11.63c-1.2 -2.62 -1.9300000000000002 -5.23 -3.4000000000000004 -7.63 -6.8999999999999995 -11.370000000000001 -14.370000000000001 -18.26 -25.86 -25 -2.4699999999999998 -1.4000000000000001 -5.430000000000001 -2 -8.56 -2.74 -1.6700000000000002 -0.08 -3.3400000000000003 -0.2 -5 -0.27 -1.1 -0.47 -2.16 -1.7399999999999998 -3.1 -2.3499999999999996 -3.8 -2.4 -13.64 -7.6 -16.439999999999998 -0.72 -1.7999999999999998 4.34 2.67 8.62 4.22 10.82 1.1500000000000001 1.53 2.6 3.2800000000000002 3.4000000000000004 5 0.47 1.1600000000000001 0.6 2.3499999999999996 1.07 3.5599999999999996 1.06 2.94 2.07 6.22 3.4699999999999998 8.97 0.73 1.4000000000000001 1.53 2.8699999999999997 2.4699999999999998 4.13 0.54 0.73 1.46 1.07 1.6700000000000002 2.27 -0.94 1.36 -1 3.3400000000000003 -1.54 5 -2.4 7.57 -1.46 16.93 1.94 22.5 1.07 1.6600000000000001 3.62 5.34 7.029999999999999 3.93 3 -1.2 2.3400000000000003 -5 3.2 -8.35 0.2 -0.8 0.07 -1.33 0.48 -1.87v0.15c0.94 1.88 1.88 3.67 2.74 5.550000000000001 2.06 3.2800000000000002 5.659999999999999 6.680000000000001 8.67 8.95 1.6 1.2 2.8699999999999997 3.2800000000000002 4.87 4.0200000000000005v-0.2h-0.15c-0.42999999999999994 -0.5800000000000001 -1 -0.8599999999999999 -1.54 -1.33a34.449999999999996 34.449999999999996 0 0 1 -3.5 -4 87.6 87.6 0 0 1 -7.47 -12.18c-1.1 -2.1 -2.02 -4.36 -2.9 -6.43 -0.4 -0.8 -0.4 -2 -1.07 -2.4 -1 1.46 -2.4699999999999998 2.7300000000000004 -3.2 4.53 -1.27 2.88 -1.4000000000000001 6.42 -1.88 10.1 -0.27 0.07 -0.14 0 -0.27 0.14 -2.14 -0.52 -2.8699999999999997 -2.74 -3.67 -4.6000000000000005 -2 -4.75 -2.33 -12.379999999999999 -0.6 -17.849999999999998 0.47 -1.4000000000000001 2.4699999999999998 -5.819999999999999 1.6700000000000002 -7.16 -0.42000000000000004 -1.27 -1.7399999999999998 -2 -2.4699999999999998 -3.03a24.78 24.78 0 0 1 -2.4 -4.27c-1.6 -3.74 -2.4 -7.880000000000001 -4.14 -11.62 -0.8 -1.73 -2.2 -3.54 -3.3400000000000003 -5.13 -1.27 -1.7999999999999998 -2.67 -3.07 -3.6799999999999997 -5.2 -0.33 -0.73 -0.8 -1.94 -0.27 -2.74 0.14 -0.54 0.42000000000000004 -0.75 0.94 -0.8999999999999999 0.8799999999999999 -0.72 3.35 0.21999999999999997 4.22 0.62 2.4699999999999998 1 4.55 1.94 6.62 3.3400000000000003 0.94 0.66 1.9500000000000002 1.9300000000000002 3.15 2.2600000000000002h1.4000000000000001c2.14 0.47 4.55 0.14 6.550000000000001 0.73 3.55 1.1400000000000001 6.75 2.8000000000000003 9.62 4.6000000000000005a59.53 59.53 0 0 1 20.85 22.86c0.8 1.54 1.1500000000000001 2.9499999999999997 1.88 4.55 1.4000000000000001 3.3000000000000003 3.13 6.630000000000001 4.55 9.82 1.4000000000000001 3.15 2.75 6.36 4.76 8.97 1 1.4000000000000001 5.02 2.13 6.82 2.86 1.33 0.6 3.4000000000000004 1.1500000000000001 4.6000000000000005 1.88 2.3000000000000003 1.4000000000000001 4.54 3 6.7 4.54 1.1 0.76 4.43 2.4299999999999997 4.63 3.7800000000000002z"
+                fill="#031df8" stroke-width="10"></path>
+            </svg>
+          </div>
+
+          <!-- cpp -->
+          <div
+            class="aspect-square flex items-center justify-center p-6 bg-zinc-900 border border-zinc-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
+            <svg role="img" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"
+              id="Cplusplus--Streamline-Simple-Icons" class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
+              <desc>
+                Cplusplus Streamline Icon: https://streamlinehq.com
+              </desc>
+              <title>C++</title>
+              <path
+                d="M223.94 60c-1.6700000000000002 -2.9 -3.9800000000000004 -5.430000000000001 -6.5200000000000005 -6.8999999999999995L129.26 2.2c-5.09 -2.94 -13.4 -2.94 -18.48 0L22.599999999999998 53.099999999999994c-5.08 2.9299999999999997 -9.23 10.129999999999999 -9.23 16v101.8c0 2.94 1.04 6.2 2.71 9.1 1.6700000000000002 2.9 3.9800000000000004 5.430000000000001 6.5200000000000005 6.8999999999999995l88.16000000000001 50.9c5.08 2.9299999999999997 13.4 2.9299999999999997 18.48 0l88.16000000000001 -50.9c2.54 -1.47 4.85 -4 6.5200000000000005 -6.8999999999999995 1.6700000000000002 -2.9 2.7 -6.16 2.7 -9.1V69.1c0.03 -2.94 -1 -6.2 -2.68 -9.1zM120 191.1c-39.2 0 -71.09 -31.9 -71.09 -71.10000000000001 0 -39.2 31.9 -71.10000000000001 71.10000000000001 -71.10000000000001a71.33 71.33 0 0 1 61.559999999999995 35.53l-30.76 17.8a35.67 35.67 0 0 0 -30.8 -17.8A35.6 35.6 0 0 0 84.44000000000001 120 35.6 35.6 0 0 0 120 155.55a35.699999999999996 35.699999999999996 0 0 0 30.8 -17.78l30.779999999999998 17.8A71.35 71.35 0 0 1 120 191.1zm71.10000000000001 -67.15h-7.9v7.9h-7.9v-7.9h-7.9v-7.9h7.9v-7.9h7.9v7.9h7.9zm29.62 0h-7.9v7.9h-7.9v-7.9h-7.9v-7.9h7.9v-7.9h7.9v7.9h7.9z"
+                fill="#031df8" stroke-width="10"></path>
+            </svg>
+          </div>
+
+          <!-- R -->
+          <div
+            class="aspect-square flex items-center justify-center p-6 bg-zinc-900 border border-zinc-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
+            <svg role="img" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" id="R--Streamline-Simple-Icons"
+              class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
+              <desc>
+                R Streamline Icon: https://streamlinehq.com
+              </desc>
+              <title>R</title>
+              <path
+                d="M120 27.46c-66.27 0 -120 35.99 -120 80.37 0 38.97 41.44 71.44 96.4 78.8V162.60000000000002c-29.24 -9.15 -49.25 -27.549999999999997 -49.25 -48.769999999999996 0 -30.35 40.839999999999996 -54.94 91.19999999999999 -54.94 50.38 0 87.57 16.830000000000002 87.57 54.94 0 19.759999999999998 -9.99 33.79 -26.619999999999997 42.72 0.8999999999999999 0.66 1.7399999999999998 1.28 2.58 2.16 1.6900000000000002 1.49 2.5 3.63 3.7199999999999998 5.44 21.28 -14.5 34.4 -34.37 34.4 -56.31 0 -44.400000000000006 -53.730000000000004 -80.38 -120 -80.38zm-21.110000000000003 49.900000000000006v135.16l40.93 -0.02 -0.02 -52.910000000000004h11c2.25 0 3.21 0.66 5.49 2.5 2.72 2.2 7.1499999999999995 9.82 7.1499999999999995 9.82l21.64 40.629999999999995 46.269999999999996 -0.02 -28.64 -48.26s-0.8599999999999999 -1.9300000000000002 -2.6500000000000004 -3.83a22.200000000000003 22.200000000000003 0 0 0 -5.819999999999999 -4.16c-4.22 -2.14 -11.49 -4.34 -11.49 -4.34s35.78 -2.64 35.78 -38.26c0 -35.62 -37.440000000000005 -36.3 -37.440000000000005 -36.3zm41.269999999999996 29.3 24.78 0.02s11.49 -0.62 11.49 11.27c0 11.65 -11.49 11.7 -11.49 11.7h-24.78zm17.54 61.19c-4.9399999999999995 0.49 -10.120000000000001 0.79 -15.4 0.8799999999999999v18.07a166.22 166.22 0 0 0 23.700000000000003 -4.7299999999999995l-4.71 -8.91s-1.08 -1.83 -2.48 -3.9400000000000004c-0.39 -0.54 -0.8 -0.98 -1.11 -1.37z"
+                fill="#031df8" stroke-width="10"></path>
+            </svg>
+          </div>
+
+          <!-- R -->
+          <div
+            class="aspect-square flex items-center justify-center p-6 bg-zinc-900 border border-zinc-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
+            <svg role="img" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" id="Git--Streamline-Simple-Icons"
+              class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
+              <desc>
+                Git Streamline Icon: https://streamlinehq.com
+              </desc>
+              <title>Git</title>
+              <path
+                d="M235.45999999999998 109.3 130.67000000000002 4.5200000000000005c-6.04 -6.029999999999999 -15.82 -6.029999999999999 -21.880000000000003 0L87.08 26.269999999999996l27.599999999999998 27.599999999999998c6.45 -2.15 13.79 -0.7000000000000001 18.89 4.41 5.16 5.15 6.58 12.58 4.38 19l26.58 26.6c6.45 -2.23 13.870000000000001 -0.78 19 4.35 7.21 7.199999999999999 7.21 18.84 0 26.04 -7.1899999999999995 7.1899999999999995 -18.81 7.1899999999999995 -26 0 -5.390000000000001 -5.41 -6.74 -13.37 -4.04 -19.96L128.6 89.55v65.25c1.7599999999999998 0.8599999999999999 3.4200000000000004 2.0300000000000002 4.88 3.4799999999999995 7.13 7.21 7.13 18.83 0 26 -7.1899999999999995 7.21 -18.89 7.21 -26.09 0 -7.1899999999999995 -7.1899999999999995 -7.1899999999999995 -18.79 0 -25.979999999999997 1.8199999999999998 -1.7999999999999998 3.87 -3.16 6.05 -4.0600000000000005V88.35000000000001c-2.17 -0.9099999999999999 -4.24 -2.22 -6 -4.01 -5.45 -5.45 -6.760000000000001 -13.420000000000002 -3.96 -20.09L76.36 37 4.5 108.81c-6 6.05 -6 15.84 0 21.89l104.80000000000001 104.77000000000001c6.04 6.04 15.82 6.04 21.86 0l104.3 -104.3c6.05 -6.029999999999999 6.05 -15.82 0 -21.869999999999997"
+                fill="#031df8" stroke-width="10"></path>
+            </svg>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PROJECTS ═══ -->
+    <section id="projects" class="py-24">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
+          <div>
+            <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">Projects
+            </h2>
+          </div>
+          <!-- <a href="projects.html"
+            class="reveal d1 text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors self-start sm:self-auto nl">All
+            projects →</a> -->
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 auto-rows-fr">
+
+          <article
+            class="card-h reveal d1 group flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+            <div class="pf w-full h-48 shrink-0">
+              <img src="../personal/market.png" alt="Market Research Dashboard" loading="lazy">
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">CrewAI</span>
+                <span
+                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">LiteLLM</span>
+                <span
+                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">FastAPI</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2">Market Research
+                  Multi-Agent System</h3>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-5 flex-grow">An autonomous market research web app powered by a 5-agent CrewAI pipeline and FastAPI, using real-time web search with
+              Tavily to analyze market size, competitors, and product strategy, hosted on Streamlit.</p>
+            </div>
+          </article>
+
+          <article
+            class="card-h reveal d2 group flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+            <div class="pf w-full h-48 shrink-0">
+              <img src="../personal/resume_jd.png" alt="Finlo Fintech App" loading="lazy">
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span
+                  class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">LangGraph</span>
+                <span
+                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">LangSmith</span>
+                <span
+                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">BERT</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">AI Resume JD Matcher
+                </h3>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4 flex-grow">An intelligent resume screening app that extracts text from complex 2-column layouts and leverages LLMs to rank
+              candidate fit, highlight missing skills, and provide explainable hiring insights.</p>
+            </div>
+          </article>
+
+          <article
+            class="card-h reveal d3 group flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+            <div class="pf w-full h-48 shrink-0">
+              <img src="../personal/microgrid.png" alt="Orea Creative Agency" loading="lazy">
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span
+                  class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">Tensorflow</span>
+                <span
+                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">Supabase</span>
+                <span
+                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">FastAPI</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">Microgrid Efficiency
+                  System</h3>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4 flex-grow">An intelligent microgrid monitoring backend built with ConvNeXt for explainable fault detection (Grad-CAM) and TCN for
+              time-series energy forecasting.</p>
+            </div>
+          </article>
+
+          <article
+            class="card-h reveal d3 group flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+            <div class="pf w-full h-48 shrink-0">
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80"
+                alt="Orea Creative Agency" loading="lazy">
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span
+                  class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">PyTorch</span>
+                <span
+                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">Mediapipe</span>
+                <span
+                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">OpenCV</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">Human Action Recognition</h3>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4 flex-grow">A real-time skeleton-based Human Action Recognition system built with PyTorch and CTR-GCN, using MediaPipe pose
+              estimation and a 2-stream spatial-temporal ensemble achieving 95.76% accuracy on NTU RGB+D.</p>
+            </div>
+          </article>
+          
+          <article
+            class="card-h reveal d3 group flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+            <div class="pf w-full h-48 shrink-0">
+              <img src="../personal/evaluator.png"
+                alt="Orea Creative Agency" loading="lazy">
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span
+                  class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">DeepEval</span>
+                <span
+                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">Streamlit</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">Ground Truth Evaluator</h3>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4 flex-grow">An automated evaluation pipeline and Streamlit dashboard that benchmarks local LLMs on TruthfulQA using DeepEval and an
+              LLM-as-a-judge to score hallucinations, answer relevancy, and factual accuracy.</p>
+            </div>
+          </article>
+          
+          <article
+            class="card-h reveal d3 group flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+            <div class="pf w-full h-48 shrink-0">
+              <img src="../personal/rag.png"
+                alt="Orea Creative Agency" loading="lazy">
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span
+                  class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">LangGraph</span>
+                <span
+                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">PostgreSQL</span>
+                <span
+                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">pgvector</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">RAG Chatbot</h3>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4 flex-grow">A Streamlit and FastAPI app where you can upload PDFs, source code, or audio recordings and chat with their content
+              using a stateful LangGraph RAG pipeline.</p>
+            </div>
+          </article>
+          
+          <article
+            class="card-h reveal d3 group flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+            <div class="pf w-full h-48 shrink-0">
+              <img src="../personal/sql_analytics.png"
+                alt="Orea Creative Agency" loading="lazy">
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span
+                  class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">PEFT/LoRA</span>
+                <span
+                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">SQLite</span>
+                <span
+                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">Huggingface</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">NL SQL Analytics Engine</h3>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4 flex-grow">A Streamlit analytics app powered by a fine-tuned Qwen2.5-3B model (via LoRA) and Ollama that translates natural
+              language questions into executable SQL queries over dynamic database schemas in real time.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CONTACT ═══ -->
+    <section id="contact" class="py-24">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="bg-zinc-900 dark:bg-zinc-800 rounded-3xl p-10 md:p-16 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl pointer-events-none"
+            aria-hidden="true"></div>
+          <div class="absolute bottom-0 left-0 w-40 h-40 bg-accent/10 rounded-full blur-2xl pointer-events-none"
+            aria-hidden="true"></div>
+
+          <div class="relative z-10 grid md:grid-cols-2 gap-12 items-start">
+
+            <div>
+              <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">Get in touch</p>
+              <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-white leading-tight mb-5">Let's
+                work<br>together</h2>
+              <p class="reveal d2 text-zinc-400 leading-relaxed mb-8">I'm open to UI/UX and frontend missions, short or
+                long-term. Landing page, full product redesign, or just a second pair of eyes — let's talk.</p>
+
+              <div class="reveal d3 flex flex-col gap-4">
+                <a href="mailto:nj323875@gmail.com"
+                  class="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
+                  <span
+                    class="w-9 h-9 flex items-center justify-center bg-zinc-800 rounded-lg group-hover:bg-accent/20 transition-colors shrink-0">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </span>
+                  <span class="text-sm">nj323875@gmail.com</span>
+                </a>
+                <a href="https://www.linkedin.com/in/naman-jain-1091232a6/" rel="noopener noreferrer" target="_blank"
+                  class="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
+                  <span
+                    class="w-9 h-9 flex items-center justify-center bg-zinc-800 rounded-lg group-hover:bg-accent/20 transition-colors shrink-0">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path
+                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                  </span>
+                  <span class="text-sm">linkedin.com/in/naman-jain-1091232a6/</span>
+                </a>
+                <a href="https://github.com/Naman-jain7" rel="noopener noreferrer" target="_blank"
+                  class="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
+                  <span
+                    class="w-9 h-9 flex items-center justify-center bg-zinc-800 rounded-lg group-hover:bg-accent/20 transition-colors shrink-0">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                  </span>
+                  <span class="text-sm">github.com/Naman-jain7</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="reveal d2">
+              <form action="#" method="POST" novalidate>
+                <div class="flex flex-col gap-4">
+                  <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label for="fname" class="block text-xs font-medium text-zinc-400 mb-1.5">Name <span
+                          aria-hidden="true">*</span></label>
+                      <input type="text" id="fname" name="name" placeholder="Jane Smith" required autocomplete="name"
+                        class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors">
+                    </div>
+                    <div>
+                      <label for="femail" class="block text-xs font-medium text-zinc-400 mb-1.5">Email <span
+                          aria-hidden="true">*</span></label>
+                      <input type="email" id="femail" name="email" placeholder="jane@company.com" required
+                        autocomplete="email"
+                        class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors">
+                    </div>
+                  </div>
+                  <div>
+                    <label for="fsubject" class="block text-xs font-medium text-zinc-400 mb-1.5">Subject</label>
+                    <input type="text" id="fsubject" name="subject" placeholder="Project inquiry"
+                      class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors">
+                  </div>
+                  <div>
+                    <label for="fmessage" class="block text-xs font-medium text-zinc-400 mb-1.5">Message <span
+                        aria-hidden="true">*</span></label>
+                    <textarea id="fmessage" name="message" rows="4" placeholder="Tell me about your project..." required
+                      class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors resize-none"></textarea>
+                  </div>
+                  <button type="submit"
+                    class="shimmer w-full bg-accent text-white font-display font-bold text-sm py-3.5 rounded-xl hover:bg-accent-light transition-colors">
+                    Send message →
+                  </button>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- <footer class="border-t border-zinc-100 dark:border-zinc-900">
   <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
     <p class="text-sm text-zinc-400">© <span id="yr"></span> Eliott. All rights reserved. <br> Developed by <a href="https://lbegey78.gumroad.com/" target="_blank" class="font-bold">Laurent Begey</a> • Distributed by <a href="https://themewagon.com/" target="_blank" class="font-bold">ThemeWagon</a></p>
     <p class="text-xs text-zinc-500">Built with
@@ -543,50 +878,51 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
       <a href="https://alpinejs.dev" rel="noopener noreferrer" target="_blank" class="hover:text-accent transition-colors">Alpine.js</a>
     </p>
   </div>
-</footer>
+</footer> -->
 
-<script>
-function app() {
-  return {
-    dark: false,
-    mm: false,
-    sc: false,
-    s: 'hero',
+  <script>
+    function app() {
+      return {
+        dark: false,
+        mm: false,
+        sc: false,
+        s: 'hero',
 
-    init() {
-      // dark mode
-      this.dark = localStorage.getItem('theme') === 'dark' ||
-        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      this.$watch('dark', v => localStorage.setItem('theme', v ? 'dark' : 'light'));
+        init() {
+          // dark mode
+          this.dark = localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          this.$watch('dark', v => localStorage.setItem('theme', v ? 'dark' : 'light'));
 
-      // scroll
-      window.addEventListener('scroll', () => {
-        this.sc = window.scrollY > 20;
-        this.updateSection();
-      }, { passive: true });
+          // scroll
+          window.addEventListener('scroll', () => {
+            this.sc = window.scrollY > 20;
+            this.updateSection();
+          }, { passive: true });
 
-      // reveal
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+          // reveal
+          const io = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+          }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+          document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-      // year
-      document.getElementById('yr').textContent = new Date().getFullYear();
-    },
+          // year
+          document.getElementById('yr').textContent = new Date().getFullYear();
+        },
 
-    updateSection() {
-      const atBottom = (window.innerHeight + window.scrollY) >= document.body.scrollHeight - 60;
-      if (atBottom) { this.s = 'contact'; return; }
-      const ids = ['contact','blog','reviews','about','work','services','hero'];
-      for (const id of ids) {
-        const el = document.getElementById(id);
-        if (el && window.scrollY >= el.offsetTop - 130) { this.s = id; return; }
+        updateSection() {
+          const atBottom = (window.innerHeight + window.scrollY) >= document.body.scrollHeight - 60;
+          if (atBottom) { this.s = 'contact'; return; }
+          const ids = ['contact', 'blog', 'reviews', 'about', 'work', 'services', 'hero'];
+          for (const id of ids) {
+            const el = document.getElementById(id);
+            if (el && window.scrollY >= el.offsetTop - 130) { this.s = id; return; }
+          }
+        }
       }
     }
-  }
-}
-</script>
+  </script>
 
 </body>
+
 </html>
