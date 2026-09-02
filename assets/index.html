@@ -30,7 +30,7 @@
       theme: {
         extend: {
           fontFamily: { display: ['PT Sans', 'sans-serif'], body: ['DM Sans', 'sans-serif'] },
-          colors: { accent: '#FF6B2B', 'accent-light': '#FF8F5C' }
+          colors: { accent: '#0ea5e9', 'accent-light': '#38bdf8' }
         }
       }
     }
@@ -82,7 +82,7 @@
     }
 
     ::-webkit-scrollbar-thumb {
-      background: #FF6B2B;
+      background: #0ea5e9;
       border-radius: 99px
     }
 
@@ -97,6 +97,8 @@
       opacity: 1;
       transform: none
     }
+
+
 
     .d1 {
       transition-delay: .08s
@@ -174,9 +176,16 @@
       display: block
     }
 
-    /* card hover */
+    /* card hover & reveal */
     .card-h {
-      transition: transform .28s cubic-bezier(.4, 0, .2, 1), border-color .18s
+      transition-property: opacity, transform, border-color;
+      transition-duration: .25s, .28s, .18s;
+      transition-timing-function: ease-in-out, cubic-bezier(.4, 0, .2, 1), ease;
+    }
+    
+    .card-h.reveal:not(.in) {
+      transform: none;
+      opacity: 0;
     }
 
     .card-h:hover {
@@ -194,33 +203,33 @@
   </style>
 </head>
 
-<body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
+<body class="bg-slate-900 text-slate-900 dark:text-slate-100 antialiased">
 
   <!-- ═══ NAV ═══ -->
   <header class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
-    :class="sc?'bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm shadow-black/5':''">
+    :class="sc?'bg-slate-900/90 backdrop-blur-md shadow-sm shadow-black/5':''">
     <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between" aria-label="Main navigation">
 
       <a href="#hero" class="font-display font-bold text-xl tracking-tight relative z-10">
-        <span class="text-zinc-900 dark:text-white">Naman </span><span class="text-accent">Jain</span>
+        <span class="text-slate-900 dark:text-white">Naman </span><span class="text-accent">Jain</span>
       </a>
 
       <ul class="hidden md:flex items-center gap-8 text-sm" role="list">
         <li><a href="#projects"
-            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            :class="s==='projects'?'on !text-zinc-900 dark:!text-white':''">Work</a></li>
+            class="nl text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+            :class="s==='projects'?'on !text-slate-900 dark:!text-white':''">Work</a></li>
         <li><a href="#overview"
-            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            :class="s==='overview'?'on !text-zinc-900 dark:!text-white':''">About</a></li>
+            class="nl text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+            :class="s==='overview'?'on !text-slate-900 dark:!text-white':''">About</a></li>
         <li><a href="#contact"
-            class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            :class="s==='contact'?'on !text-zinc-900 dark:!text-white':''">Contact</a></li>
+            class="nl text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+            :class="s==='contact'?'on !text-slate-900 dark:!text-white':''">Contact</a></li>
       </ul>
 
       <div class="flex items-center gap-3">
         <!-- dark toggle -->
         <button @click="dark=!dark"
-          class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors"
+          class="w-9 h-9 flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors"
           :aria-label="dark?'Light mode':'Dark mode'">
           <svg x-show="!dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -240,7 +249,7 @@
         </a>
         <!-- hamburger -->
         <button @click="mm=!mm"
-          class="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800"
+          class="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-800"
           :aria-expanded="mm" aria-label="Toggle menu">
           <svg x-show="!mm" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -257,15 +266,15 @@
       x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
       x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0"
       x-transition:leave-end="opacity-0 -translate-y-2"
-      class="md:hidden bg-white dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-900">
+      class="md:hidden bg-slate-900 border-t border-slate-100 dark:border-slate-900">
       <ul class="flex flex-col px-6 py-5 gap-4 text-sm font-medium" role="list">
         <li><a href="#projects" @click="mm=false"
-            class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Work</a></li>
+            class="block text-slate-700 dark:text-slate-300 hover:text-accent transition-colors">Work</a></li>
         <li><a href="#overview" @click="mm=false"
-            class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">About</a></li>
+            class="block text-slate-700 dark:text-slate-300 hover:text-accent transition-colors">About</a></li>
         <li><a href="#contact" @click="mm=false"
-            class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Contact</a></li>
-        <li class="pt-2 border-t border-zinc-100 dark:border-zinc-900">
+            class="block text-slate-700 dark:text-slate-300 hover:text-accent transition-colors">Contact</a></li>
+        <li class="pt-2 border-t border-slate-100 dark:border-slate-900">
           <a href="#contact" @click="mm=false"
             class="inline-flex shimmer bg-accent text-white font-medium text-sm px-5 py-2.5 rounded-full">Hire me →</a>
         </li>
@@ -277,35 +286,33 @@
 
     <!-- ═══ HERO ═══ -->
     <section id="hero" class="relative min-h-screen flex items-center pt-16 overflow-hidden">
-      <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"></div>
-      <div
-        class="absolute bottom-1/4 left-0 w-64 h-64 bg-zinc-200/50 dark:bg-zinc-800/30 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"></div>
+      <!-- Subtle gradient blobs -->
+      <div class="absolute top-1/4 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-[100px] pointer-events-none" aria-hidden="true"></div>
+      <div class="absolute bottom-1/4 left-0 w-64 h-64 bg-purple-500/10 rounded-full blur-[100px] pointer-events-none" aria-hidden="true"></div>
 
       <div class="relative z-10 max-w-6xl mx-auto px-6 py-24 w-full">
         <div class="grid md:grid-cols-2 gap-12 items-center">
 
           <div>
             <h1
-              class="reveal d1 font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-zinc-900 dark:text-white mb-6">
+              class="reveal d1 font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-slate-900 dark:text-white mb-6">
               Naman Jain
             </h1>
             <p
-              class="reveal d2 text-lg md:text-xl text-zinc-500 dark:text-zinc-400 font-light leading-relaxed max-w-md mb-10">
-              <strong class="font-medium text-zinc-700 dark:text-zinc-300">Aspiring AI/ML Engineer</strong>. I design and build
+              class="reveal d2 text-lg md:text-xl text-slate-500 dark:text-slate-400 font-light leading-relaxed max-w-md mb-10">
+              <strong class="font-medium text-slate-700 dark:text-slate-300">Aspiring AI/ML Engineer</strong>. I design and build
               digital products that people love to use — fast, clean, and accessible.
             </p>
             <div class="reveal d3 flex flex-wrap gap-4">
               <a href="#projects"
-                class="shimmer inline-flex items-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-colors text-sm">
+                class="shimmer inline-flex items-center gap-2 bg-accent text-white font-medium px-7 py-3.5 rounded-full hover:bg-accent-light transition-colors text-sm">
                 View my work
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </a>
               <a href="#contact"
-                class="inline-flex items-center gap-2 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors text-sm">Get
+                class="inline-flex items-center gap-2 border border-slate-700 text-slate-300 font-medium px-7 py-3.5 rounded-full hover:bg-slate-800 transition-colors text-sm">Get
                 in touch</a>
             </div>
           </div>
@@ -323,24 +330,192 @@
     </section>
 
     <!-- ═══ OVERVIEW ═══ -->
-    <section id="overview" class="py-24 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800/30">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="mb-10">
-          <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">About me</p>
-          <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white mb-6">Overview
-          </h2>
-        </div>
-        <div class="max-w-3xl">
-          <p class="reveal d2 text-lg md:text-xl text-zinc-600 dark:text-zinc-400 font-light leading-relaxed mb-8">
-            Hi, I'm Naman Jain, an AI/ML engineer building generative AI systems. I work on intelligent agents, semantic search and
-            data retrieval, and language model fine-tuning—along with the infrastructure that makes them reliable and
-            production-ready. My focus is on building systems that work at scale, fail gracefully, and deliver measurable results.
-          </p>
-          <div class="reveal d3">
-            <a href="https://drive.google.com/file/d/1nGciBw7Wjew11PHiu_gu52LguYnT0z9-/view?usp=drive_link" target="_blank" rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 bg-blue-600 text-white font-medium px-7 py-3.5 rounded-full hover:bg-blue-700 transition-colors text-sm">
-              Resume
-            </a>
+    <section id="overview" class="py-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Text Content -->
+          <div>
+            <div class="mb-10">
+              <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">About me</p>
+              <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-slate-900 dark:text-white mb-6">Overview
+              </h2>
+            </div>
+            <div class="max-w-3xl">
+              <p class="reveal d2 text-lg md:text-xl text-slate-600 dark:text-slate-400 font-light leading-relaxed mb-8">
+                Hi, I'm Naman Jain, an AI/ML engineer building generative AI systems. I work on intelligent agents, semantic search and
+                data retrieval, and language model fine-tuning—along with the infrastructure that makes them reliable and
+                production-ready. My focus is on building systems that work at scale, fail gracefully, and deliver measurable results.
+              </p>
+              <div class="reveal d3">
+                <a href="https://drive.google.com/file/d/1nGciBw7Wjew11PHiu_gu52LguYnT0z9-/view?usp=drive_link" target="_blank" rel="noopener noreferrer"
+                  class="shimmer inline-flex items-center gap-2 bg-accent text-white font-medium px-7 py-3.5 rounded-full hover:bg-accent-light transition-colors text-sm">
+                  Resume
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- SVG Animation -->
+          <div class="reveal d3 hidden lg:flex justify-center">
+            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" class="w-full max-w-lg h-auto">
+              <defs>
+                <!-- Gradient for connecting lines -->
+                <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:0.3" />
+                  <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0.6" />
+                </linearGradient>
+
+                <!-- Glow filter for nodes -->
+                <filter id="nodeGlow">
+                  <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+                  <feMerge>
+                    <feMergeNode in="coloredBlur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+
+                <!-- Animation keyframes -->
+                <style>
+                  @keyframes pulse {
+                    0%, 100% {
+                      r: 6px;
+                      opacity: 0.7;
+                    }
+                    50% {
+                      r: 8px;
+                      opacity: 1;
+                    }
+                  }
+
+                  @keyframes glow {
+                    0%, 100% {
+                      stroke-width: 1px;
+                      opacity: 0.3;
+                    }
+                    50% {
+                      stroke-width: 2px;
+                      opacity: 0.8;
+                    }
+                  }
+
+                  @keyframes flow {
+                    0% {
+                      stroke-dashoffset: 0;
+                    }
+                    100% {
+                      stroke-dashoffset: 8;
+                    }
+                  }
+
+                  @keyframes fadeInOut {
+                    0%, 100% {
+                      opacity: 0.2;
+                    }
+                    50% {
+                      opacity: 0.7;
+                    }
+                  }
+
+                  .node-input {
+                    animation: pulse 3s ease-in-out infinite;
+                  }
+
+                  .node-hidden {
+                    animation: pulse 3.5s ease-in-out infinite 0.5s;
+                  }
+
+                  .node-output {
+                    animation: pulse 3s ease-in-out infinite 1s;
+                  }
+
+                  .line-flow {
+                    animation: flow 2s linear infinite;
+                    stroke-dasharray: 4;
+                  }
+
+                  .line-secondary {
+                    animation: fadeInOut 4s ease-in-out infinite;
+                  }
+
+                  .connection {
+                    stroke: url(#lineGradient);
+                    stroke-linecap: round;
+                  }
+                </style>
+              </defs>
+
+              <!-- ============ LAYER 1: INPUT NODES ============ -->
+              
+              <!-- Connecting lines from input to hidden layer -->
+              <line x1="60" y1="80" x2="140" y2="140" class="connection line-flow" stroke-width="1.5" />
+              <line x1="60" y1="120" x2="140" y2="140" class="connection line-secondary" stroke-width="1" />
+              <line x1="60" y1="160" x2="140" y2="140" class="connection" stroke-width="1.5" opacity="0.4" />
+              <line x1="60" y1="200" x2="140" y2="180" class="connection line-flow" stroke-width="1.5" />
+              <line x1="60" y1="240" x2="140" y2="180" class="connection line-secondary" stroke-width="1" />
+              <line x1="60" y1="280" x2="140" y2="220" class="connection" stroke-width="1.5" opacity="0.4" />
+
+              <!-- Input nodes -->
+              <circle cx="60" cy="80" r="6" fill="#0ea5e9" class="node-input" filter="url(#nodeGlow)" />
+              <circle cx="60" cy="120" r="6" fill="#0ea5e9" class="node-input" filter="url(#nodeGlow)" />
+              <circle cx="60" cy="160" r="6" fill="#0ea5e9" class="node-input" filter="url(#nodeGlow)" />
+              <circle cx="60" cy="200" r="6" fill="#0ea5e9" class="node-input" filter="url(#nodeGlow)" />
+              <circle cx="60" cy="240" r="6" fill="#0ea5e9" class="node-input" filter="url(#nodeGlow)" />
+              <circle cx="60" cy="280" r="6" fill="#0ea5e9" class="node-input" filter="url(#nodeGlow)" />
+
+              <!-- ============ LAYER 2: HIDDEN NODES (First) ============ -->
+
+              <!-- Connecting lines from hidden layer 1 to hidden layer 2 -->
+              <line x1="140" y1="140" x2="220" y2="110" class="connection line-secondary" stroke-width="1.5" />
+              <line x1="140" y1="140" x2="220" y2="160" class="connection line-flow" stroke-width="1.5" />
+              <line x1="140" y1="140" x2="220" y2="210" class="connection" stroke-width="1.5" opacity="0.4" />
+              <line x1="140" y1="180" x2="220" y2="160" class="connection line-flow" stroke-width="1.5" />
+              <line x1="140" y1="180" x2="220" y2="210" class="connection line-secondary" stroke-width="1" />
+              
+              <!-- Connections to 4th node in Layer 3 (y2=260) -->
+              <line x1="140" y1="140" x2="220" y2="260" class="connection line-secondary" stroke-width="1" />
+              <line x1="140" y1="180" x2="220" y2="260" class="connection line-flow" stroke-width="1.5" />
+              <line x1="140" y1="220" x2="220" y2="260" class="connection" stroke-width="1.5" opacity="0.4" />
+
+              <!-- Hidden layer 1 nodes -->
+              <circle cx="140" cy="140" r="6" fill="#06b6d4" class="node-hidden" filter="url(#nodeGlow)" />
+              <circle cx="140" cy="180" r="6" fill="#06b6d4" class="node-hidden" filter="url(#nodeGlow)" />
+              <circle cx="140" cy="220" r="6" fill="#06b6d4" class="node-hidden" filter="url(#nodeGlow)" />
+
+              <!-- ============ LAYER 3: HIDDEN NODES (Second) ============ -->
+
+              <!-- Connecting lines from hidden layer 2 to output layer -->
+              <line x1="220" y1="110" x2="300" y2="140" class="connection line-flow" stroke-width="1.5" />
+              <line x1="220" y1="160" x2="300" y2="140" class="connection line-secondary" stroke-width="1" />
+              <line x1="220" y1="160" x2="300" y2="200" class="connection" stroke-width="1.5" opacity="0.4" />
+              <line x1="220" y1="210" x2="300" y2="200" class="connection line-flow" stroke-width="1.5" />
+              
+              <!-- Connections to 3rd output node (y2=260) -->
+              <line x1="220" y1="160" x2="300" y2="260" class="connection" stroke-width="1.5" opacity="0.4" />
+              <line x1="220" y1="210" x2="300" y2="260" class="connection line-flow" stroke-width="1.5" />
+              <line x1="220" y1="260" x2="300" y2="260" class="connection line-secondary" stroke-width="1" />
+
+              <!-- Hidden layer 2 nodes -->
+              <circle cx="220" cy="110" r="6" fill="#06b6d4" class="node-hidden" filter="url(#nodeGlow)" />
+              <circle cx="220" cy="160" r="6" fill="#06b6d4" class="node-hidden" filter="url(#nodeGlow)" />
+              <circle cx="220" cy="210" r="6" fill="#06b6d4" class="node-hidden" filter="url(#nodeGlow)" />
+              <circle cx="220" cy="260" r="6" fill="#06b6d4" class="node-hidden" filter="url(#nodeGlow)" />
+
+              <!-- ============ LAYER 4: OUTPUT NODES ============ -->
+
+              <!-- Output nodes -->
+              <circle cx="300" cy="140" r="6" fill="#a78bfa" class="node-output" filter="url(#nodeGlow)" />
+              <circle cx="300" cy="200" r="6" fill="#a78bfa" class="node-output" filter="url(#nodeGlow)" />
+              <circle cx="300" cy="260" r="6" fill="#a78bfa" class="node-output" filter="url(#nodeGlow)" />
+
+              <!-- ============ DECORATIVE ELEMENTS ============ -->
+
+              <!-- Subtle background circles for layer visualization -->
+              <circle cx="60" cy="160" r="130" fill="none" stroke="#0ea5e9" stroke-width="0.5" opacity="0.1" />
+              <circle cx="140" cy="180" r="100" fill="none" stroke="#06b6d4" stroke-width="0.5" opacity="0.1" />
+              <circle cx="220" cy="170" r="90" fill="none" stroke="#06b6d4" stroke-width="0.5" opacity="0.1" />
+              <circle cx="300" cy="200" r="80" fill="none" stroke="#a78bfa" stroke-width="0.5" opacity="0.1" />
+
+            </svg>
           </div>
         </div>
       </div>
@@ -362,13 +537,13 @@
               ti
             </div>
             <div
-              class="flex-grow border border-zinc-100 dark:border-zinc-800 rounded-3xl p-2 ml-[-2rem] pl-12 bg-white dark:bg-[#121212]">
+              class="flex-grow border border-slate-100 dark:border-slate-800 rounded-3xl p-2 ml-[-2rem] pl-12 bg-slate-900 dark:bg-[#121212]">
               <div class="bg-slate-100 dark:bg-[#1f2937] rounded-2xl px-5 py-3.5 mb-3">
-                <span class="text-zinc-900 dark:text-white font-bold text-sm md:text-base tracking-wide">September 2023
+                <span class="text-slate-900 dark:text-white font-bold text-sm md:text-base tracking-wide">September 2023
                   – July 2027</span>
               </div>
               <div class="px-4 pb-2 pt-1">
-                <p class="text-zinc-600 dark:text-zinc-300 text-sm md:text-base leading-relaxed">
+                <p class="text-slate-600 dark:text-slate-300 text-sm md:text-base leading-relaxed">
                   BE Computer Science Engineering, Thapar Institute of Engineering and Technology. CGPA : 9.15/10
                 </p>
               </div>
@@ -386,13 +561,13 @@
               </svg>
             </div>
             <div
-              class="flex-grow border border-zinc-100 dark:border-zinc-800 rounded-3xl p-2 ml-[-2rem] pl-12 bg-white dark:bg-[#121212]">
+              class="flex-grow border border-slate-100 dark:border-slate-800 rounded-3xl p-2 ml-[-2rem] pl-12 bg-slate-900 dark:bg-[#121212]">
               <div class="bg-slate-100 dark:bg-[#1f2937] rounded-2xl px-5 py-3.5 mb-3">
-                <span class="text-zinc-900 dark:text-white font-bold text-sm md:text-base tracking-wide">July
+                <span class="text-slate-900 dark:text-white font-bold text-sm md:text-base tracking-wide">July
                   2022</span>
               </div>
               <div class="px-4 pb-2 pt-1">
-                <p class="text-zinc-600 dark:text-zinc-300 text-sm md:text-base leading-relaxed">
+                <p class="text-slate-600 dark:text-slate-300 text-sm md:text-base leading-relaxed">
                   Bal Vikas School, CBSE Board, 12th Standard with 95% marks in PCM.
                 </p>
               </div>
@@ -410,13 +585,13 @@
               </svg>
             </div>
             <div
-              class="flex-grow border border-zinc-100 dark:border-zinc-800 rounded-3xl p-2 ml-[-2rem] pl-12 bg-white dark:bg-[#121212]">
+              class="flex-grow border border-slate-100 dark:border-slate-800 rounded-3xl p-2 ml-[-2rem] pl-12 bg-slate-900 dark:bg-[#121212]">
               <div class="bg-slate-100 dark:bg-[#1f2937] rounded-2xl px-5 py-3.5 mb-3">
-                <span class="text-zinc-900 dark:text-white font-bold text-sm md:text-base tracking-wide">July
+                <span class="text-slate-900 dark:text-white font-bold text-sm md:text-base tracking-wide">July
                   2020</span>
               </div>
               <div class="px-4 pb-2 pt-1">
-                <p class="text-zinc-600 dark:text-zinc-300 text-sm md:text-base leading-relaxed">
+                <p class="text-slate-600 dark:text-slate-300 text-sm md:text-base leading-relaxed">
                   Bal Vikas School, CBSE Board, 10th Standard with 96% marks in PCM.
                 </p>
               </div>
@@ -428,10 +603,10 @@
     </section>
 
     <!-- ═══ TECH STACK ═══ -->
-    <section id="tech-stack" class="py-24 bg-zinc-50 dark:bg-zinc-900/40 border-t border-zinc-100 dark:border-zinc-800">
+    <section id="tech-stack" class="py-24">
       <div class="max-w-6xl mx-auto px-6">
         <div class="mb-14 text-center">
-          <h2 class="reveal font-display font-bold text-3xl md:text-4xl text-zinc-900 dark:text-white">My preferred tech
+          <h2 class="reveal font-display font-bold text-3xl md:text-4xl text-slate-900 dark:text-white">My preferred tech
             stack</h2>
         </div>
 
@@ -439,7 +614,7 @@
 
           <!-- python -->
           <div
-            class="aspect-square flex items-center justify-center p-6 bg-zinc-900 border border-zinc-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
+            class="aspect-square flex items-center justify-center p-6 bg-slate-900 border border-slate-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
             <svg role="img" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"
               id="Python--Streamline-Simple-Icons" class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
               <desc>
@@ -454,7 +629,7 @@
 
           <!-- numpy -->
           <div
-            class="aspect-square flex items-center justify-center p-6 bg-zinc-900 border border-zinc-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
+            class="aspect-square flex items-center justify-center p-6 bg-slate-900 border border-slate-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
             <svg role="img" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" id="Numpy--Streamline-Simple-Icons"
               class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
               <desc>
@@ -469,7 +644,7 @@
 
           <!-- pandas -->
           <div
-            class="aspect-square flex items-center justify-center p-6 bg-zinc-900 border border-zinc-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
+            class="aspect-square flex items-center justify-center p-6 bg-slate-900 border border-slate-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
             <svg role="img" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"
               id="Pandas--Streamline-Simple-Icons" class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
               <desc>
@@ -484,7 +659,7 @@
 
           <!-- tensorflow -->
           <div
-            class="aspect-square flex items-center justify-center p-6 bg-zinc-900 border border-zinc-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
+            class="aspect-square flex items-center justify-center p-6 bg-slate-900 border border-slate-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
             <svg role="img" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"
               id="Tensorflow--Streamline-Simple-Icons" class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
               <desc>
@@ -499,7 +674,7 @@
 
           <!-- pytorch -->
           <div
-            class="aspect-square flex items-center justify-center p-6 bg-zinc-900 border border-zinc-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
+            class="aspect-square flex items-center justify-center p-6 bg-slate-900 border border-slate-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
             <svg role="img" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"
               id="Pytorch--Streamline-Simple-Icons" class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
               <desc>
@@ -514,7 +689,7 @@
 
           <!-- langchain -->
           <div
-            class="aspect-square flex items-center justify-center p-6 bg-zinc-900 border border-zinc-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
+            class="aspect-square flex items-center justify-center p-6 bg-slate-900 border border-slate-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
             <svg role="img" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"
               id="Langchain--Streamline-Simple-Icons" class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
               <desc>
@@ -529,7 +704,7 @@
 
           <!-- postgres -->
           <div
-            class="aspect-square flex items-center justify-center p-6 bg-zinc-900 border border-zinc-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
+            class="aspect-square flex items-center justify-center p-6 bg-slate-900 border border-slate-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
             <svg role="img" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"
               id="Postgresql--Streamline-Simple-Icons" class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
               <desc>
@@ -544,7 +719,7 @@
 
           <!-- mysql -->
           <div
-            class="aspect-square flex items-center justify-center p-6 bg-zinc-900 border border-zinc-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
+            class="aspect-square flex items-center justify-center p-6 bg-slate-900 border border-slate-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
             <svg role="img" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" id="Mysql--Streamline-Simple-Icons"
               class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
               <desc>
@@ -559,7 +734,7 @@
 
           <!-- cpp -->
           <div
-            class="aspect-square flex items-center justify-center p-6 bg-zinc-900 border border-zinc-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
+            class="aspect-square flex items-center justify-center p-6 bg-slate-900 border border-slate-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
             <svg role="img" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"
               id="Cplusplus--Streamline-Simple-Icons" class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
               <desc>
@@ -574,7 +749,7 @@
 
           <!-- R -->
           <div
-            class="aspect-square flex items-center justify-center p-6 bg-zinc-900 border border-zinc-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
+            class="aspect-square flex items-center justify-center p-6 bg-slate-900 border border-slate-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
             <svg role="img" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" id="R--Streamline-Simple-Icons"
               class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
               <desc>
@@ -587,9 +762,9 @@
             </svg>
           </div>
 
-          <!-- R -->
+          <!-- git -->
           <div
-            class="aspect-square flex items-center justify-center p-6 bg-zinc-900 border border-zinc-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
+            class="aspect-square flex items-center justify-center p-6 bg-slate-900 border border-slate-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
             <svg role="img" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" id="Git--Streamline-Simple-Icons"
               class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
               <desc>
@@ -599,6 +774,20 @@
               <path
                 d="M235.45999999999998 109.3 130.67000000000002 4.5200000000000005c-6.04 -6.029999999999999 -15.82 -6.029999999999999 -21.880000000000003 0L87.08 26.269999999999996l27.599999999999998 27.599999999999998c6.45 -2.15 13.79 -0.7000000000000001 18.89 4.41 5.16 5.15 6.58 12.58 4.38 19l26.58 26.6c6.45 -2.23 13.870000000000001 -0.78 19 4.35 7.21 7.199999999999999 7.21 18.84 0 26.04 -7.1899999999999995 7.1899999999999995 -18.81 7.1899999999999995 -26 0 -5.390000000000001 -5.41 -6.74 -13.37 -4.04 -19.96L128.6 89.55v65.25c1.7599999999999998 0.8599999999999999 3.4200000000000004 2.0300000000000002 4.88 3.4799999999999995 7.13 7.21 7.13 18.83 0 26 -7.1899999999999995 7.21 -18.89 7.21 -26.09 0 -7.1899999999999995 -7.1899999999999995 -7.1899999999999995 -18.79 0 -25.979999999999997 1.8199999999999998 -1.7999999999999998 3.87 -3.16 6.05 -4.0600000000000005V88.35000000000001c-2.17 -0.9099999999999999 -4.24 -2.22 -6 -4.01 -5.45 -5.45 -6.760000000000001 -13.420000000000002 -3.96 -20.09L76.36 37 4.5 108.81c-6 6.05 -6 15.84 0 21.89l104.80000000000001 104.77000000000001c6.04 6.04 15.82 6.04 21.86 0l104.3 -104.3c6.05 -6.029999999999999 6.05 -15.82 0 -21.869999999999997"
                 fill="#031df8" stroke-width="10"></path>
+            </svg>
+          </div>
+          
+          <!-- jupyter -->
+          <div
+            class="aspect-square flex items-center justify-center p-6 bg-slate-900 border border-slate-700 rounded-lg hover:border-accent hover:-translate-y-1 transition-all">
+            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="Jupyter--Streamline-Simple-Icons" class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
+              <desc>
+                Jupyter Streamline Icon: https://streamlinehq.com
+              </desc>
+              <title>Jupyter</title>
+              <path
+                d="M7.157 22.201A1.784 1.799 0 0 1 5.374 24a1.784 1.799 0 0 1 -1.784 -1.799 1.784 1.799 0 0 1 1.784 -1.799 1.784 1.799 0 0 1 1.783 1.799zM20.582 1.427a1.415 1.427 0 0 1 -1.415 1.428 1.415 1.427 0 0 1 -1.416 -1.428A1.415 1.427 0 0 1 19.167 0a1.415 1.427 0 0 1 1.415 1.427zM4.992 3.336A1.047 1.056 0 0 1 3.946 4.39a1.047 1.056 0 0 1 -1.047 -1.055A1.047 1.056 0 0 1 3.946 2.28a1.047 1.056 0 0 1 1.046 1.056zm7.336 1.517c3.769 0 7.06 1.38 8.768 3.424a9.363 9.363 0 0 0 -3.393 -4.547 9.238 9.238 0 0 0 -5.377 -1.728A9.238 9.238 0 0 0 6.95 3.73a9.363 9.363 0 0 0 -3.394 4.547c1.713 -2.04 5.004 -3.424 8.772 -3.424zm0.001 13.295c-3.768 0 -7.06 -1.381 -8.768 -3.425a9.363 9.363 0 0 0 3.394 4.547A9.238 9.238 0 0 0 12.33 21a9.238 9.238 0 0 0 5.377 -1.729 9.363 9.363 0 0 0 3.393 -4.547c-1.712 2.044 -5.003 3.425 -8.772 3.425Z"
+                fill="#031df8" stroke-width="1"></path>
             </svg>
           </div>
 
@@ -611,81 +800,81 @@
       <div class="max-w-6xl mx-auto px-6">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
           <div>
-            <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">Projects
+            <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-slate-900 dark:text-white">Projects
             </h2>
           </div>
           <!-- <a href="projects.html"
-            class="reveal d1 text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors self-start sm:self-auto nl">All
+            class="reveal d1 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-accent transition-colors self-start sm:self-auto nl">All
             projects →</a> -->
         </div>
 
         <div class="grid md:grid-cols-3 gap-6 auto-rows-fr">
 
           <article
-            class="card-h reveal d1 group flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+            class="card-h reveal d1 group flex flex-col h-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:border-accent">
             <div class="pf w-full h-48 shrink-0">
               <img src="../personal/market.png" alt="Market Research Dashboard" loading="lazy">
             </div>
             <div class="p-6 flex flex-col flex-grow">
               <div class="flex flex-wrap gap-2 mb-4">
                 <span
-                  class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">CrewAI</span>
+                  class="text-xs bg-slate-800/50 text-slate-400 border border-slate-700 px-3 py-1 rounded-full">CrewAI</span>
                 <span
-                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">LiteLLM</span>
+                  class="text-xs bg-slate-800/50 text-slate-400 border border-slate-700 px-3 py-1 rounded-full">LiteLLM</span>
                 <span
-                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">FastAPI</span>
+                  class="text-xs bg-slate-800/50 text-slate-400 border border-slate-700 px-3 py-1 rounded-full">FastAPI</span>
               </div>
-              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-2">Market Research
+              <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mb-2">Market Research
                   Multi-Agent System</h3>
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-5 flex-grow">An autonomous market research web app powered by a 5-agent CrewAI pipeline and FastAPI, using real-time web search with
+              <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-5 flex-grow">An autonomous market research web app powered by a 5-agent CrewAI pipeline and FastAPI, using real-time web search with
               Tavily to analyze market size, competitors, and product strategy, hosted on Streamlit.</p>
             </div>
           </article>
 
           <article
-            class="card-h reveal d2 group flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+            class="card-h reveal d2 group flex flex-col h-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:border-accent">
             <div class="pf w-full h-48 shrink-0">
               <img src="../personal/resume_jd.png" alt="Finlo Fintech App" loading="lazy">
             </div>
             <div class="p-6 flex flex-col flex-grow">
               <div class="flex flex-wrap gap-2 mb-3">
                 <span
-                  class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">LangGraph</span>
+                  class="text-xs bg-slate-800/50 text-slate-400 border border-slate-700 px-3 py-1 rounded-full">LangGraph</span>
                 <span
-                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">LangSmith</span>
+                  class="text-xs bg-slate-800/50 text-slate-400 border border-slate-700 px-3 py-1 rounded-full">LangSmith</span>
                 <span
-                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">BERT</span>
+                  class="text-xs bg-slate-800/50 text-slate-400 border border-slate-700 px-3 py-1 rounded-full">BERT</span>
               </div>
-              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">AI Resume JD Matcher
+              <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mb-1.5">AI Resume JD Matcher
                 </h3>
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4 flex-grow">An intelligent resume screening app that extracts text from complex 2-column layouts and leverages LLMs to rank
+              <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-4 flex-grow">An intelligent resume screening app that extracts text from complex 2-column layouts and leverages LLMs to rank
               candidate fit, highlight missing skills, and provide explainable hiring insights.</p>
             </div>
           </article>
 
           <article
-            class="card-h reveal d3 group flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+            class="card-h reveal d3 group flex flex-col h-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:border-accent">
             <div class="pf w-full h-48 shrink-0">
               <img src="../personal/microgrid.png" alt="Orea Creative Agency" loading="lazy">
             </div>
             <div class="p-6 flex flex-col flex-grow">
               <div class="flex flex-wrap gap-2 mb-3">
                 <span
-                  class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">Tensorflow</span>
+                  class="text-xs bg-slate-800/50 text-slate-400 border border-slate-700 px-3 py-1 rounded-full">Tensorflow</span>
                 <span
-                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">Supabase</span>
+                  class="text-xs bg-slate-800/50 text-slate-400 border border-slate-700 px-3 py-1 rounded-full">Supabase</span>
                 <span
-                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">FastAPI</span>
+                  class="text-xs bg-slate-800/50 text-slate-400 border border-slate-700 px-3 py-1 rounded-full">FastAPI</span>
               </div>
-              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">Microgrid Efficiency
+              <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mb-1.5">Microgrid Efficiency
                   System</h3>
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4 flex-grow">An intelligent microgrid monitoring backend built with ConvNeXt for explainable fault detection (Grad-CAM) and TCN for
+              <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-4 flex-grow">An intelligent microgrid monitoring backend built with ConvNeXt for explainable fault detection (Grad-CAM) and TCN for
               time-series energy forecasting.</p>
             </div>
           </article>
 
           <article
-            class="card-h reveal d3 group flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+            class="card-h reveal d3 group flex flex-col h-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:border-accent">
             <div class="pf w-full h-48 shrink-0">
               <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80"
                 alt="Orea Creative Agency" loading="lazy">
@@ -693,20 +882,20 @@
             <div class="p-6 flex flex-col flex-grow">
               <div class="flex flex-wrap gap-2 mb-3">
                 <span
-                  class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">PyTorch</span>
+                  class="text-xs bg-slate-800/50 text-slate-400 border border-slate-700 px-3 py-1 rounded-full">PyTorch</span>
                 <span
-                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">Mediapipe</span>
+                  class="text-xs bg-slate-800/50 text-slate-400 border border-slate-700 px-3 py-1 rounded-full">Mediapipe</span>
                 <span
-                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">OpenCV</span>
+                  class="text-xs bg-slate-800/50 text-slate-400 border border-slate-700 px-3 py-1 rounded-full">OpenCV</span>
               </div>
-              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">Human Action Recognition</h3>
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4 flex-grow">A real-time skeleton-based Human Action Recognition system built with PyTorch and CTR-GCN, using MediaPipe pose
+              <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mb-1.5">Human Action Recognition</h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-4 flex-grow">A real-time skeleton-based Human Action Recognition system built with PyTorch and CTR-GCN, using MediaPipe pose
               estimation and a 2-stream spatial-temporal ensemble achieving 95.76% accuracy on NTU RGB+D.</p>
             </div>
           </article>
           
           <article
-            class="card-h reveal d3 group flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+            class="card-h reveal d3 group flex flex-col h-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:border-accent">
             <div class="pf w-full h-48 shrink-0">
               <img src="../personal/evaluator.png"
                 alt="Orea Creative Agency" loading="lazy">
@@ -714,18 +903,18 @@
             <div class="p-6 flex flex-col flex-grow">
               <div class="flex flex-wrap gap-2 mb-3">
                 <span
-                  class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">DeepEval</span>
+                  class="text-xs bg-slate-800/50 text-slate-400 border border-slate-700 px-3 py-1 rounded-full">DeepEval</span>
                 <span
-                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">Streamlit</span>
+                  class="text-xs bg-slate-800/50 text-slate-400 border border-slate-700 px-3 py-1 rounded-full">Streamlit</span>
               </div>
-              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">Ground Truth Evaluator</h3>
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4 flex-grow">An automated evaluation pipeline and Streamlit dashboard that benchmarks local LLMs on TruthfulQA using DeepEval and an
+              <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mb-1.5">Ground Truth Evaluator</h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-4 flex-grow">An automated evaluation pipeline and Streamlit dashboard that benchmarks local LLMs on TruthfulQA using DeepEval and an
               LLM-as-a-judge to score hallucinations, answer relevancy, and factual accuracy.</p>
             </div>
           </article>
           
           <article
-            class="card-h reveal d3 group flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+            class="card-h reveal d3 group flex flex-col h-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:border-accent">
             <div class="pf w-full h-48 shrink-0">
               <img src="../personal/rag.png"
                 alt="Orea Creative Agency" loading="lazy">
@@ -733,20 +922,20 @@
             <div class="p-6 flex flex-col flex-grow">
               <div class="flex flex-wrap gap-2 mb-3">
                 <span
-                  class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">LangGraph</span>
+                  class="text-xs bg-slate-800/50 text-slate-400 border border-slate-700 px-3 py-1 rounded-full">LangGraph</span>
                 <span
-                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">PostgreSQL</span>
+                  class="text-xs bg-slate-800/50 text-slate-400 border border-slate-700 px-3 py-1 rounded-full">PostgreSQL</span>
                 <span
-                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">pgvector</span>
+                  class="text-xs bg-slate-800/50 text-slate-400 border border-slate-700 px-3 py-1 rounded-full">pgvector</span>
               </div>
-              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">RAG Chatbot</h3>
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4 flex-grow">A Streamlit and FastAPI app where you can upload PDFs, source code, or audio recordings and chat with their content
+              <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mb-1.5">RAG Chatbot</h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-4 flex-grow">A Streamlit and FastAPI app where you can upload PDFs, source code, or audio recordings and chat with their content
               using a stateful LangGraph RAG pipeline.</p>
             </div>
           </article>
           
           <article
-            class="card-h reveal d3 group flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent">
+            class="card-h reveal d3 group flex flex-col h-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:border-accent">
             <div class="pf w-full h-48 shrink-0">
               <img src="../personal/sql_analytics.png"
                 alt="Orea Creative Agency" loading="lazy">
@@ -754,14 +943,14 @@
             <div class="p-6 flex flex-col flex-grow">
               <div class="flex flex-wrap gap-2 mb-3">
                 <span
-                  class="text-xs bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700 px-3 py-1 rounded-full">PEFT/LoRA</span>
+                  class="text-xs bg-slate-800/50 text-slate-400 border border-slate-700 px-3 py-1 rounded-full">PEFT/LoRA</span>
                 <span
-                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">SQLite</span>
+                  class="text-xs bg-slate-800/50 text-slate-400 border border-slate-700 px-3 py-1 rounded-full">SQLite</span>
                 <span
-                  class="text-xs bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 px-3 py-1 rounded-full">Huggingface</span>
+                  class="text-xs bg-slate-800/50 text-slate-400 border border-slate-700 px-3 py-1 rounded-full">Huggingface</span>
               </div>
-              <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">NL SQL Analytics Engine</h3>
-              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4 flex-grow">A Streamlit analytics app powered by a fine-tuned Qwen2.5-3B model (via LoRA) and Ollama that translates natural
+              <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mb-1.5">NL SQL Analytics Engine</h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-4 flex-grow">A Streamlit analytics app powered by a fine-tuned Qwen2.5-3B model (via LoRA) and Ollama that translates natural
               language questions into executable SQL queries over dynamic database schemas in real time.</p>
             </div>
           </article>
@@ -773,7 +962,7 @@
     <!-- ═══ CONTACT ═══ -->
     <section id="contact" class="py-24">
       <div class="max-w-6xl mx-auto px-6">
-        <div class="bg-zinc-900 dark:bg-zinc-800 rounded-3xl p-10 md:p-16 relative overflow-hidden">
+        <div class="bg-slate-900 dark:bg-slate-800 rounded-3xl p-10 md:p-16 relative overflow-hidden">
           <div class="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl pointer-events-none"
             aria-hidden="true"></div>
           <div class="absolute bottom-0 left-0 w-40 h-40 bg-accent/10 rounded-full blur-2xl pointer-events-none"
@@ -785,14 +974,14 @@
               <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">Get in touch</p>
               <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-white leading-tight mb-5">Let's
                 work<br>together</h2>
-              <p class="reveal d2 text-zinc-400 leading-relaxed mb-8">I'm open to UI/UX and frontend missions, short or
+              <p class="reveal d2 text-slate-400 leading-relaxed mb-8">I'm open to UI/UX and frontend missions, short or
                 long-term. Landing page, full product redesign, or just a second pair of eyes — let's talk.</p>
 
               <div class="reveal d3 flex flex-col gap-4">
                 <a href="mailto:nj323875@gmail.com"
-                  class="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
+                  class="group flex items-center gap-3 text-slate-400 hover:text-white transition-colors">
                   <span
-                    class="w-9 h-9 flex items-center justify-center bg-zinc-800 rounded-lg group-hover:bg-accent/20 transition-colors shrink-0">
+                    class="w-9 h-9 flex items-center justify-center bg-slate-800 rounded-lg group-hover:bg-accent/20 transition-colors shrink-0">
                     <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -801,9 +990,9 @@
                   <span class="text-sm">nj323875@gmail.com</span>
                 </a>
                 <a href="https://www.linkedin.com/in/naman-jain-1091232a6/" rel="noopener noreferrer" target="_blank"
-                  class="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
+                  class="group flex items-center gap-3 text-slate-400 hover:text-white transition-colors">
                   <span
-                    class="w-9 h-9 flex items-center justify-center bg-zinc-800 rounded-lg group-hover:bg-accent/20 transition-colors shrink-0">
+                    class="w-9 h-9 flex items-center justify-center bg-slate-800 rounded-lg group-hover:bg-accent/20 transition-colors shrink-0">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path
                         d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
@@ -812,9 +1001,9 @@
                   <span class="text-sm">linkedin.com/in/naman-jain-1091232a6/</span>
                 </a>
                 <a href="https://github.com/Naman-jain7" rel="noopener noreferrer" target="_blank"
-                  class="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
+                  class="group flex items-center gap-3 text-slate-400 hover:text-white transition-colors">
                   <span
-                    class="w-9 h-9 flex items-center justify-center bg-zinc-800 rounded-lg group-hover:bg-accent/20 transition-colors shrink-0">
+                    class="w-9 h-9 flex items-center justify-center bg-slate-800 rounded-lg group-hover:bg-accent/20 transition-colors shrink-0">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path
                         d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
@@ -830,29 +1019,29 @@
                 <div class="flex flex-col gap-4">
                   <div class="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label for="fname" class="block text-xs font-medium text-zinc-400 mb-1.5">Name <span
+                      <label for="fname" class="block text-xs font-medium text-slate-400 mb-1.5">Name <span
                           aria-hidden="true">*</span></label>
                       <input type="text" id="fname" name="name" placeholder="Jane Smith" required autocomplete="name"
-                        class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors">
+                        class="w-full bg-slate-800 border border-slate-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors">
                     </div>
                     <div>
-                      <label for="femail" class="block text-xs font-medium text-zinc-400 mb-1.5">Email <span
+                      <label for="femail" class="block text-xs font-medium text-slate-400 mb-1.5">Email <span
                           aria-hidden="true">*</span></label>
                       <input type="email" id="femail" name="email" placeholder="jane@company.com" required
                         autocomplete="email"
-                        class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors">
+                        class="w-full bg-slate-800 border border-slate-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors">
                     </div>
                   </div>
                   <div>
-                    <label for="fsubject" class="block text-xs font-medium text-zinc-400 mb-1.5">Subject</label>
+                    <label for="fsubject" class="block text-xs font-medium text-slate-400 mb-1.5">Subject</label>
                     <input type="text" id="fsubject" name="subject" placeholder="Project inquiry"
-                      class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors">
+                      class="w-full bg-slate-800 border border-slate-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors">
                   </div>
                   <div>
-                    <label for="fmessage" class="block text-xs font-medium text-zinc-400 mb-1.5">Message <span
+                    <label for="fmessage" class="block text-xs font-medium text-slate-400 mb-1.5">Message <span
                         aria-hidden="true">*</span></label>
                     <textarea id="fmessage" name="message" rows="4" placeholder="Tell me about your project..." required
-                      class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors resize-none"></textarea>
+                      class="w-full bg-slate-800 border border-slate-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors resize-none"></textarea>
                   </div>
                   <button type="submit"
                     class="shimmer w-full bg-accent text-white font-display font-bold text-sm py-3.5 rounded-xl hover:bg-accent-light transition-colors">
@@ -869,10 +1058,10 @@
 
   </main>
 
-  <!-- <footer class="border-t border-zinc-100 dark:border-zinc-900">
+  <!-- <footer class="border-t border-slate-100 dark:border-slate-900">
   <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-    <p class="text-sm text-zinc-400">© <span id="yr"></span> Eliott. All rights reserved. <br> Developed by <a href="https://lbegey78.gumroad.com/" target="_blank" class="font-bold">Laurent Begey</a> • Distributed by <a href="https://themewagon.com/" target="_blank" class="font-bold">ThemeWagon</a></p>
-    <p class="text-xs text-zinc-500">Built with
+    <p class="text-sm text-slate-400">© <span id="yr"></span> Eliott. All rights reserved. <br> Developed by <a href="https://lbegey78.gumroad.com/" target="_blank" class="font-bold">Laurent Begey</a> • Distributed by <a href="https://themewagon.com/" target="_blank" class="font-bold">ThemeWagon</a></p>
+    <p class="text-xs text-slate-500">Built with
       <a href="https://tailwindcss.com" rel="noopener noreferrer" target="_blank" class="hover:text-accent transition-colors">Tailwind CSS</a>
       &amp;
       <a href="https://alpinejs.dev" rel="noopener noreferrer" target="_blank" class="hover:text-accent transition-colors">Alpine.js</a>
