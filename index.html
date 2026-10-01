@@ -188,7 +188,7 @@
       transition-duration: .25s, .28s, .18s;
       transition-timing-function: ease-in-out, cubic-bezier(.4, 0, .2, 1), ease;
     }
-    
+
     .card-h.reveal:not(.in) {
       transform: none;
       opacity: 0;
@@ -293,8 +293,10 @@
     <!-- ═══ HERO ═══ -->
     <section id="hero" class="relative min-h-screen flex items-center pt-16 overflow-hidden">
       <!-- Subtle gradient blobs -->
-      <div class="absolute top-1/4 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none" aria-hidden="true"></div>
-      <div class="absolute bottom-1/4 left-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px] pointer-events-none" aria-hidden="true"></div>
+      <div class="absolute top-1/4 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none"
+        aria-hidden="true"></div>
+      <div class="absolute bottom-1/4 left-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px] pointer-events-none"
+        aria-hidden="true"></div>
 
       <div class="relative z-10 max-w-6xl mx-auto px-6 py-24 w-full">
         <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -306,7 +308,8 @@
             </h1>
             <p
               class="reveal d2 text-lg md:text-xl text-slate-500 dark:text-[#A9B6C8] font-light leading-relaxed max-w-md mb-10">
-              <strong class="font-medium text-slate-700 dark:text-[#B8C4D6]">Aspiring AI/ML Engineer</strong>. I design and build
+              <strong class="font-medium text-slate-700 dark:text-[#B8C4D6]">Aspiring AI/ML Engineer</strong>. I design
+              and build
               digital products that people love to use — fast, clean, and accessible.
             </p>
             <div class="reveal d3 flex flex-wrap gap-4">
@@ -343,26 +346,32 @@
           <div>
             <div class="mb-10">
               <p class="reveal text-xs font-medium text-primary tracking-widest uppercase mb-3">About me</p>
-              <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-slate-900 dark:text-white mb-6">Overview
+              <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-slate-900 dark:text-white mb-6">
+                Overview
               </h2>
             </div>
             <div class="max-w-3xl">
-              <p class="reveal d2 text-lg md:text-xl text-slate-600 dark:text-[#A9B6C8] font-light leading-relaxed mb-8">
-                Hi, I'm Naman Jain, an AI/ML engineer building generative AI systems. I work on intelligent agents, tool calling pipelines, and language model fine-tuning along with the infrastructure that makes them reliable and
+              <p
+                class="reveal d2 text-lg md:text-xl text-slate-600 dark:text-[#A9B6C8] font-light leading-relaxed mb-8">
+                Hi, I'm Naman Jain, an AI/ML engineer building generative AI systems. I work on intelligent agents, tool
+                calling pipelines, and language model fine-tuning along with the infrastructure that makes them reliable
+                and
                 production-ready. My focus is on building systems that work at scale, and deliver measurable results.
               </p>
               <div class="reveal d3">
-                <a href="https://drive.google.com/file/d/1nGciBw7Wjew11PHiu_gu52LguYnT0z9-/view?usp=drive_link" target="_blank" rel="noopener noreferrer"
+                <a href="https://drive.google.com/file/d/1WnKN0TorL3zm-SrJz_F0N46UrDZNibPu/view?usp=drive_link"
+                  target="_blank" rel="noopener noreferrer"
                   class="shimmer inline-flex items-center gap-2 bg-accent text-white font-medium px-7 py-3.5 rounded-full hover:bg-accent-light transition-colors text-sm">
                   Resume
                 </a>
               </div>
             </div>
           </div>
-          
+
           <!-- SVG Animation -->
           <div class="reveal d3 hidden lg:flex justify-center">
-            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" class="w-full max-w-lg h-auto">
+            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"
+              class="w-full max-w-lg h-auto">
               <defs>
                 <!-- Gradient for connecting lines -->
                 <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -382,10 +391,13 @@
                 <!-- Animation keyframes -->
                 <style>
                   @keyframes pulse {
-                    0%, 100% {
+
+                    0%,
+                    100% {
                       r: 6px;
                       opacity: 0.7;
                     }
+
                     50% {
                       r: 8px;
                       opacity: 1;
@@ -393,10 +405,13 @@
                   }
 
                   @keyframes glow {
-                    0%, 100% {
+
+                    0%,
+                    100% {
                       stroke-width: 1px;
                       opacity: 0.3;
                     }
+
                     50% {
                       stroke-width: 2px;
                       opacity: 0.8;
@@ -407,15 +422,19 @@
                     0% {
                       stroke-dashoffset: 0;
                     }
+
                     100% {
                       stroke-dashoffset: 8;
                     }
                   }
 
                   @keyframes fadeInOut {
-                    0%, 100% {
+
+                    0%,
+                    100% {
                       opacity: 0.2;
                     }
+
                     50% {
                       opacity: 0.7;
                     }
@@ -450,7 +469,7 @@
               </defs>
 
               <!-- ============ LAYER 1: INPUT NODES ============ -->
-              
+
               <!-- Connecting lines from input to hidden layer -->
               <line x1="60" y1="80" x2="140" y2="140" class="connection line-flow" stroke-width="1.5" />
               <line x1="60" y1="120" x2="140" y2="140" class="connection line-secondary" stroke-width="1" />
@@ -475,7 +494,7 @@
               <line x1="140" y1="140" x2="220" y2="210" class="connection" stroke-width="1.5" opacity="0.4" />
               <line x1="140" y1="180" x2="220" y2="160" class="connection line-flow" stroke-width="1.5" />
               <line x1="140" y1="180" x2="220" y2="210" class="connection line-secondary" stroke-width="1" />
-              
+
               <!-- Connections to 4th node in Layer 3 (y2=260) -->
               <line x1="140" y1="140" x2="220" y2="260" class="connection line-secondary" stroke-width="1" />
               <line x1="140" y1="180" x2="220" y2="260" class="connection line-flow" stroke-width="1.5" />
@@ -493,7 +512,7 @@
               <line x1="220" y1="160" x2="300" y2="140" class="connection line-secondary" stroke-width="1" />
               <line x1="220" y1="160" x2="300" y2="200" class="connection" stroke-width="1.5" opacity="0.4" />
               <line x1="220" y1="210" x2="300" y2="200" class="connection line-flow" stroke-width="1.5" />
-              
+
               <!-- Connections to 3rd output node (y2=260) -->
               <line x1="220" y1="160" x2="300" y2="260" class="connection" stroke-width="1.5" opacity="0.4" />
               <line x1="220" y1="210" x2="300" y2="260" class="connection line-flow" stroke-width="1.5" />
@@ -611,7 +630,8 @@
     <section id="tech-stack" class="py-24">
       <div class="max-w-6xl mx-auto px-6">
         <div class="mb-14 text-center">
-          <h2 class="reveal font-display font-bold text-3xl md:text-4xl text-slate-900 dark:text-white">My preferred tech
+          <h2 class="reveal font-display font-bold text-3xl md:text-4xl text-slate-900 dark:text-white">My preferred
+            tech
             stack</h2>
         </div>
 
@@ -781,11 +801,12 @@
                 fill="#18C7C9" stroke-width="10"></path>
             </svg>
           </div>
-          
+
           <!-- jupyter -->
           <div
             class="aspect-square flex items-center justify-center p-6 bg-[#101B2D] border border-[#26364F] rounded-lg hover:border-primary hover:-translate-y-1 transition-all">
-            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="Jupyter--Streamline-Simple-Icons" class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
+            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="Jupyter--Streamline-Simple-Icons"
+              class="w-full h-full max-w-[80px] max-h-[80px] object-contain">
               <desc>
                 Jupyter Streamline Icon: https://streamlinehq.com
               </desc>
@@ -823,25 +844,30 @@
             <div class="p-6 flex flex-col flex-grow">
               <div class="flex items-start justify-between gap-4 mb-4">
                 <div class="flex flex-wrap gap-2">
-                <span
-                  class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">CrewAI</span>
-                <span
-                  class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">LiteLLM</span>
-                <span
-                  class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">FastAPI</span>
-              </div>
-                <a href="https://github.com/Naman-jain7/market-research" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 text-[#A9B6C8] hover:text-white transition-colors" aria-label="View source on GitHub">
-                  <span class="w-8 h-8 flex items-center justify-center bg-[#16243A]/50 hover:bg-primary/20 border border-[#26364F] rounded-lg transition-colors">
+                  <span
+                    class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">CrewAI</span>
+                  <span
+                    class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">LiteLLM</span>
+                  <span
+                    class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">FastAPI</span>
+                </div>
+                <a href="https://github.com/Naman-jain7/market-research" target="_blank" rel="noopener noreferrer"
+                  class="flex-shrink-0 text-[#A9B6C8] hover:text-white transition-colors"
+                  aria-label="View source on GitHub">
+                  <span
+                    class="w-8 h-8 flex items-center justify-center bg-[#16243A]/50 hover:bg-primary/20 border border-[#26364F] rounded-lg transition-colors">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                      <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                     </svg>
                   </span>
                 </a>
               </div>
               <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mb-2">Market Research
-                  Multi-Agent System</h3>
-              <p class="text-sm text-slate-500 dark:text-[#A9B6C8] leading-relaxed mb-5 flex-grow">An autonomous market research web app powered by a 5-agent CrewAI pipeline and FastAPI, using real-time web search with
-              Tavily to analyze market size, competitors, and product strategy, hosted on Streamlit.</p>
+                Multi-Agent System</h3>
+              <p class="text-sm text-slate-500 dark:text-[#A9B6C8] leading-relaxed mb-5 flex-grow">An autonomous market
+                research web app powered by a 5-agent CrewAI pipeline and FastAPI, using real-time web search with
+                Tavily to analyze market size, competitors, and product strategy, hosted on Streamlit.</p>
             </div>
           </article>
 
@@ -853,25 +879,30 @@
             <div class="p-6 flex flex-col flex-grow">
               <div class="flex items-start justify-between gap-4 mb-3">
                 <div class="flex flex-wrap gap-2">
-                <span
-                  class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">LangGraph</span>
-                <span
-                  class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">LangSmith</span>
-                <span
-                  class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">BERT</span>
-              </div>
-                <a href="https://github.com/Naman-jain7/resume-jd-matcher" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 text-[#A9B6C8] hover:text-white transition-colors" aria-label="View source on GitHub">
-                  <span class="w-8 h-8 flex items-center justify-center bg-[#16243A]/50 hover:bg-primary/20 border border-[#26364F] rounded-lg transition-colors">
+                  <span
+                    class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">LangGraph</span>
+                  <span
+                    class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">LangSmith</span>
+                  <span
+                    class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">BERT</span>
+                </div>
+                <a href="https://github.com/Naman-jain7/resume-jd-matcher" target="_blank" rel="noopener noreferrer"
+                  class="flex-shrink-0 text-[#A9B6C8] hover:text-white transition-colors"
+                  aria-label="View source on GitHub">
+                  <span
+                    class="w-8 h-8 flex items-center justify-center bg-[#16243A]/50 hover:bg-primary/20 border border-[#26364F] rounded-lg transition-colors">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                      <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                     </svg>
                   </span>
                 </a>
               </div>
               <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mb-1.5">AI Resume JD Matcher
-                </h3>
-              <p class="text-sm text-slate-500 dark:text-[#A9B6C8] leading-relaxed mb-4 flex-grow">An intelligent resume screening app that extracts text from complex 2-column layouts and leverages LLMs to rank
-              candidate fit, highlight missing skills, and provide explainable hiring insights.</p>
+              </h3>
+              <p class="text-sm text-slate-500 dark:text-[#A9B6C8] leading-relaxed mb-4 flex-grow">An intelligent resume
+                screening app that extracts text from complex 2-column layouts and leverages LLMs to rank
+                candidate fit, highlight missing skills, and provide explainable hiring insights.</p>
             </div>
           </article>
 
@@ -883,25 +914,30 @@
             <div class="p-6 flex flex-col flex-grow">
               <div class="flex items-start justify-between gap-4 mb-3">
                 <div class="flex flex-wrap gap-2">
-                <span
-                  class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">Tensorflow</span>
-                <span
-                  class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">Supabase</span>
-                <span
-                  class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">FastAPI</span>
-              </div>
-                <a href="https://github.com/Naman-jain7/Microgrid-Efficiency-System" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 text-[#A9B6C8] hover:text-white transition-colors" aria-label="View source on GitHub">
-                  <span class="w-8 h-8 flex items-center justify-center bg-[#16243A]/50 hover:bg-primary/20 border border-[#26364F] rounded-lg transition-colors">
+                  <span
+                    class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">Tensorflow</span>
+                  <span
+                    class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">Supabase</span>
+                  <span
+                    class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">FastAPI</span>
+                </div>
+                <a href="https://github.com/Naman-jain7/Microgrid-Efficiency-System" target="_blank"
+                  rel="noopener noreferrer" class="flex-shrink-0 text-[#A9B6C8] hover:text-white transition-colors"
+                  aria-label="View source on GitHub">
+                  <span
+                    class="w-8 h-8 flex items-center justify-center bg-[#16243A]/50 hover:bg-primary/20 border border-[#26364F] rounded-lg transition-colors">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                      <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                     </svg>
                   </span>
                 </a>
               </div>
               <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mb-1.5">Microgrid Efficiency
-                  System</h3>
-              <p class="text-sm text-slate-500 dark:text-[#A9B6C8] leading-relaxed mb-4 flex-grow">An intelligent microgrid monitoring backend built with ConvNeXt for explainable fault detection (Grad-CAM) and TCN for
-              time-series energy forecasting.</p>
+                System</h3>
+              <p class="text-sm text-slate-500 dark:text-[#A9B6C8] leading-relaxed mb-4 flex-grow">An intelligent
+                microgrid monitoring backend built with ConvNeXt for explainable fault detection (Grad-CAM) and TCN for
+                time-series energy forecasting.</p>
             </div>
           </article>
 
@@ -914,112 +950,133 @@
             <div class="p-6 flex flex-col flex-grow">
               <div class="flex items-start justify-between gap-4 mb-3">
                 <div class="flex flex-wrap gap-2">
-                <span
-                  class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">PyTorch</span>
-                <span
-                  class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">Mediapipe</span>
-                <span
-                  class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">OpenCV</span>
-              </div>
-                <a href="https://github.com/Naman-jain7/human-action-recognition" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 text-[#A9B6C8] hover:text-white transition-colors" aria-label="View source on GitHub">
-                  <span class="w-8 h-8 flex items-center justify-center bg-[#16243A]/50 hover:bg-primary/20 border border-[#26364F] rounded-lg transition-colors">
+                  <span
+                    class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">PyTorch</span>
+                  <span
+                    class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">Mediapipe</span>
+                  <span
+                    class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">OpenCV</span>
+                </div>
+                <a href="https://github.com/Naman-jain7/human-action-recognition" target="_blank"
+                  rel="noopener noreferrer" class="flex-shrink-0 text-[#A9B6C8] hover:text-white transition-colors"
+                  aria-label="View source on GitHub">
+                  <span
+                    class="w-8 h-8 flex items-center justify-center bg-[#16243A]/50 hover:bg-primary/20 border border-[#26364F] rounded-lg transition-colors">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                      <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                     </svg>
                   </span>
                 </a>
               </div>
-              <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mb-1.5">Human Action Recognition</h3>
-              <p class="text-sm text-slate-500 dark:text-[#A9B6C8] leading-relaxed mb-4 flex-grow">A real-time skeleton-based Human Action Recognition system built with PyTorch and CTR-GCN, using MediaPipe pose
-              estimation and a 2-stream spatial-temporal ensemble achieving 95.76% accuracy on NTU RGB+D.</p>
+              <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mb-1.5">Human Action Recognition
+              </h3>
+              <p class="text-sm text-slate-500 dark:text-[#A9B6C8] leading-relaxed mb-4 flex-grow">A real-time
+                skeleton-based Human Action Recognition system built with PyTorch and CTR-GCN, using MediaPipe pose
+                estimation and a 2-stream spatial-temporal ensemble achieving 95.76% accuracy on NTU RGB+D.</p>
             </div>
           </article>
-          
+
           <article
             class="card-h reveal d3 group flex flex-col h-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-[#101B2D] border border-slate-100 dark:border-[#26364F] hover:border-primary">
             <div class="pf w-full h-48 shrink-0">
-              <img src="personal/evaluator.png"
-                alt="Orea Creative Agency" loading="lazy">
+              <img src="personal/evaluator.png" alt="Orea Creative Agency" loading="lazy">
             </div>
             <div class="p-6 flex flex-col flex-grow">
               <div class="flex items-start justify-between gap-4 mb-3">
                 <div class="flex flex-wrap gap-2">
-                <span
-                  class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">DeepEval</span>
-                <span
-                  class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">Streamlit</span>
-              </div>
-                <a href="https://github.com/Naman-jain7/groundtruth-evaluator" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 text-[#A9B6C8] hover:text-white transition-colors" aria-label="View source on GitHub">
-                  <span class="w-8 h-8 flex items-center justify-center bg-[#16243A]/50 hover:bg-primary/20 border border-[#26364F] rounded-lg transition-colors">
+                  <span
+                    class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">DeepEval</span>
+                  <span
+                    class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">Streamlit</span>
+                </div>
+                <a href="https://github.com/Naman-jain7/groundtruth-evaluator" target="_blank" rel="noopener noreferrer"
+                  class="flex-shrink-0 text-[#A9B6C8] hover:text-white transition-colors"
+                  aria-label="View source on GitHub">
+                  <span
+                    class="w-8 h-8 flex items-center justify-center bg-[#16243A]/50 hover:bg-primary/20 border border-[#26364F] rounded-lg transition-colors">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                      <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                     </svg>
                   </span>
                 </a>
               </div>
-              <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mb-1.5">Ground Truth Evaluator</h3>
-              <p class="text-sm text-slate-500 dark:text-[#A9B6C8] leading-relaxed mb-4 flex-grow">An automated evaluation pipeline and Streamlit dashboard that benchmarks local LLMs on TruthfulQA using DeepEval and an
-              LLM-as-a-judge to score hallucinations, answer relevancy, and factual accuracy.</p>
+              <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mb-1.5">Ground Truth Evaluator
+              </h3>
+              <p class="text-sm text-slate-500 dark:text-[#A9B6C8] leading-relaxed mb-4 flex-grow">An automated
+                evaluation pipeline and Streamlit dashboard that benchmarks local LLMs on TruthfulQA using DeepEval and
+                an
+                LLM-as-a-judge to score hallucinations, answer relevancy, and factual accuracy.</p>
             </div>
           </article>
-          
+
           <article
             class="card-h reveal d3 group flex flex-col h-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-[#101B2D] border border-slate-100 dark:border-[#26364F] hover:border-primary">
             <div class="pf w-full h-48 shrink-0">
-              <img src="personal/rag.png"
-                alt="Orea Creative Agency" loading="lazy">
+              <img src="personal/rag.png" alt="Orea Creative Agency" loading="lazy">
             </div>
             <div class="p-6 flex flex-col flex-grow">
               <div class="flex items-start justify-between gap-4 mb-3">
                 <div class="flex flex-wrap gap-2">
-                <span
-                  class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">LangGraph</span>
-                <span
-                  class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">PostgreSQL</span>
-                <span
-                  class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">pgvector</span>
-              </div>
-                <a href="https://github.com/Naman-jain7/rag-chatbot" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 text-[#A9B6C8] hover:text-white transition-colors" aria-label="View source on GitHub">
-                  <span class="w-8 h-8 flex items-center justify-center bg-[#16243A]/50 hover:bg-primary/20 border border-[#26364F] rounded-lg transition-colors">
+                  <span
+                    class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">LangGraph</span>
+                  <span
+                    class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">PostgreSQL</span>
+                  <span
+                    class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">pgvector</span>
+                </div>
+                <a href="https://github.com/Naman-jain7/rag-chatbot" target="_blank" rel="noopener noreferrer"
+                  class="flex-shrink-0 text-[#A9B6C8] hover:text-white transition-colors"
+                  aria-label="View source on GitHub">
+                  <span
+                    class="w-8 h-8 flex items-center justify-center bg-[#16243A]/50 hover:bg-primary/20 border border-[#26364F] rounded-lg transition-colors">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                      <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                     </svg>
                   </span>
                 </a>
               </div>
               <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mb-1.5">RAG Chatbot</h3>
-              <p class="text-sm text-slate-500 dark:text-[#A9B6C8] leading-relaxed mb-4 flex-grow">A Streamlit and FastAPI app where you can upload PDFs, source code, or audio recordings and chat with their content
-              using a stateful LangGraph RAG pipeline.</p>
+              <p class="text-sm text-slate-500 dark:text-[#A9B6C8] leading-relaxed mb-4 flex-grow">A Streamlit and
+                FastAPI app where you can upload PDFs, source code, or audio recordings and chat with their content
+                using a stateful LangGraph RAG pipeline.</p>
             </div>
           </article>
-          
+
           <article
             class="card-h reveal d3 group flex flex-col h-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-[#101B2D] border border-slate-100 dark:border-[#26364F] hover:border-primary">
             <div class="pf w-full h-48 shrink-0">
-              <img src="personal/sql_analytics.png"
-                alt="Orea Creative Agency" loading="lazy">
+              <img src="personal/sql_analytics.png" alt="Orea Creative Agency" loading="lazy">
             </div>
             <div class="p-6 flex flex-col flex-grow">
               <div class="flex items-start justify-between gap-4 mb-3">
                 <div class="flex flex-wrap gap-2">
-                <span
-                  class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">PEFT/LoRA</span>
-                <span
-                  class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">SQLite</span>
-                <span
-                  class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">Huggingface</span>
-              </div>
-                <a href="https://github.com/Naman-jain7/nl-sql-analytics-engine" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 text-[#A9B6C8] hover:text-white transition-colors" aria-label="View source on GitHub">
-                  <span class="w-8 h-8 flex items-center justify-center bg-[#16243A]/50 hover:bg-primary/20 border border-[#26364F] rounded-lg transition-colors">
+                  <span
+                    class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">PEFT/LoRA</span>
+                  <span
+                    class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">SQLite</span>
+                  <span
+                    class="text-xs bg-[#16243A]/50 text-[#A9B6C8] border border-[#26364F] px-3 py-1 rounded-full">Huggingface</span>
+                </div>
+                <a href="https://github.com/Naman-jain7/nl-sql-analytics-engine" target="_blank"
+                  rel="noopener noreferrer" class="flex-shrink-0 text-[#A9B6C8] hover:text-white transition-colors"
+                  aria-label="View source on GitHub">
+                  <span
+                    class="w-8 h-8 flex items-center justify-center bg-[#16243A]/50 hover:bg-primary/20 border border-[#26364F] rounded-lg transition-colors">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                      <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                     </svg>
                   </span>
                 </a>
               </div>
-              <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mb-1.5">NL SQL Analytics Engine</h3>
-              <p class="text-sm text-slate-500 dark:text-[#A9B6C8] leading-relaxed mb-4 flex-grow">A Streamlit analytics app powered by a fine-tuned Qwen2.5-3B model (via LoRA) and Ollama that translates natural
-              language questions into executable SQL queries over dynamic database schemas in real time.</p>
+              <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mb-1.5">NL SQL Analytics Engine
+              </h3>
+              <p class="text-sm text-slate-500 dark:text-[#A9B6C8] leading-relaxed mb-4 flex-grow">A Streamlit analytics
+                app powered by a fine-tuned Qwen2.5-3B model (via LoRA) and Ollama that translates natural
+                language questions into executable SQL queries over dynamic database schemas in real time.</p>
             </div>
           </article>
 
